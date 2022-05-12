@@ -160,32 +160,34 @@
     <div class="popup_box ">
         <div class="popup_inner">
             <h3>Sign Up</h3>
-            <form action="#">
+            <!-- SignUp form -->
+            <form action="{{ action('SignupController@store') }}" method="POST">
+                {{ csrf_field() }}
                 <div class="row">
 
                     <div class="col-xl-12">
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="signupemail">
                     </div>
                     <div class="col-xl-6">
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Name" name="signupname">
                     </div>
                     <div class="col-xl-6">
-                        <input type="text" placeholder="Phone no.">
+                        <input type="text" placeholder="Phone no." name="signupmobile">
                     </div>
                     <div class="col-xl-6">
-                        <input type="text" placeholder="Sex">
+                        <input type="text" placeholder="Gender" name="signupgender">
                     </div>
                     <div class="col-xl-6">
-                        <input type="text" placeholder="Age">
+                        <input type="text" placeholder="Age" name="signupage">
                     </div>
                     <div class="col-xl-12">
-                        <input type="text" placeholder="Address">
+                        <input type="text" placeholder="Address" name="signupaddress">
                     </div>
                     <div class="col-xl-6">
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" name="signuppassword">
                     </div>
                     <div class="col-xl-6">
-                        <input type="password" placeholder="Confirm Password">
+                        <input type="password" placeholder="Confirm Password" name="signupcpassword">
                     </div>
 
 
@@ -194,6 +196,7 @@
                     </div>
                 </div>
             </form>
+            <!-- sign up form -->
         </div>
     </div>
 </form>
