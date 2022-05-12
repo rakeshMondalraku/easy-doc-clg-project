@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Contact')
+@section('title', 'Doctors')
 
 @section('content')
     <!-- bradcam_area_start  -->

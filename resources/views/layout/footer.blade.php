@@ -146,7 +146,7 @@
                         <button type="submit" class="boxed-btn3">Login</button>
                     </div>
                     <div class="col-xl-12">
-                        <p>Don't have an account? <a href="#signin-form" class="popup-with-form" style="color: blue;"> Sign in</a></p>
+                        <p>Don't have an account? <a href="#signin-form" class="popup-with-form" style="color: blue;"> Sign Up</a></p>
                     </div>
                 </div>
             </form>
@@ -159,7 +159,7 @@
 <form id="signin-form" class="white-popup-block mfp-hide">
     <div class="popup_box ">
         <div class="popup_inner">
-            <h3>Sign In</h3>
+            <h3>Sign Up</h3>
             <form action="#">
                 <div class="row">
 
@@ -190,7 +190,7 @@
 
 
                     <div class="col-xl-12">
-                        <button type="submit" class="boxed-btn3">Confirm</button>
+                        <button type="submit" class="boxed-btn3">Sign Up</button>
                     </div>
                 </div>
             </form>
