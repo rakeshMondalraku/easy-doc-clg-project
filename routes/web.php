@@ -32,3 +32,7 @@ Route::get('/profile', function () {
 Route::get('/doctors', function () {
     return view('doctors');
 });
+
+Route::get('/doctors/login', function () {
+    return view('doctors.login');
+});
