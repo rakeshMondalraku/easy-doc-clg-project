@@ -32,7 +32,19 @@ Route::get('/profile', function () {
 Route::get('/doctors', function () {
     return view('doctors');
 });
-
 Route::get('/doctors/login', function () {
     return view('doctors.login');
 });
+Route::get('/doctors/welcome', function () {
+    return view('doctors.welcome');
+});
+Route::get('/doctors/appointments', function () {
+    return view('doctors.appointments');
+});
+Route::get('/doctors/approved_appointments', function () {
+    return view('doctors.approved_appointments');
+});
+Route::get('/doctors/profile', function () {
+    return view('doctors.profile');
+});
+
