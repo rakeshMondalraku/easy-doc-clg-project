@@ -36,6 +36,19 @@ class SignupController extends Controller
      */
     public function store(Request $request)
     {
+        // SignUp form Validation Start
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'age'=>'required',
+        //     'gender'=>'required',
+        //     'email' => 'required|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+        //     'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+        //     'password'=>'required|regex:^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$',
+        //     'address' => 'required'
+        //  ]);
+
+        //  Sign Up form Validation end
+
         // $signup = new Signup;
         // $signup->name = $request->request('signupname');
         // $signup->age = $request->request('signupage');
