@@ -55,48 +55,70 @@
               <div class="modal-body text-center">
                 <div class="wrapper vh-100">
                   <div class="row align-items-center h-100">
+                    <h2 style="text-align:center; width:100%">Registration Form</h2>
+                    <!-- start of sign up form  -->
                     <form class="col-lg-6 col-md-8 col-10 mx-auto" action="welcome.php" method="POST" enctype="">
                       <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="name">Name</label>
+                          <input type="test" class="form-control" id="name">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="age">Age</label>
+                          <input type="text" id="age" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="gender">Gender</label>
+                          <input type="text" id="gender" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="qualification">Qualification</label>
+                          <input type="text" id="qualification" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="specialization">Specialization</label>
+                          <input type="text" id="specialization" class="form-control">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="exprience">Exprience</label>
+                          <input type="text" class="form-control" id="exprience">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="mobile_no">Mobile No</label>
+                          <input type="tel" class="form-control" id="mobile_no">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="password">New Password</label>
+                          <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="password">Confirm Password</label>
+                          <input type="password" class="form-control" id="password">
+                        </div>
                         <div class="form-group col-md-12">
-                          <label for="inputEmail4">Email</label>
-                          <input type="email" class="form-control" id="inputEmail4">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="firstname">Name</label>
-                          <input type="text" id="firstname" class="form-control">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="lastname">Degree</label>
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="lastname">Age</label>
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="lastname">Specialization</label>
-                          <input type="text" id="lastname" class="form-control">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="inputPassword5">New Password</label>
-                          <input type="password" class="form-control" id="inputPassword5">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <label for="inputPassword6">Confirm Password</label>
-                          <input type="password" class="form-control" id="inputPassword6">
+                          <label for="clinic_timing">Clinic Timings</label>
+                          <input type="text" class="form-control" id="clinic_timing">
                         </div>
                         <div class="form-group col-md-12">
-                          <label for="example-textarea">About Yourself</label>
-                          <textarea class="form-control" id="example-textarea" rows="4"></textarea>
+                          <label for="clinic_address">Clinic Address</label>
+                          <textarea class="form-control" id="clinic_address" rows="4"></textarea>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="file">Doctor's Certificate</label>
+                          <input type="file" class="" id="file">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="img">Your Image</label>
+                          <input type="file" class="" id="img">
                         </div>
                       </div>
-                      <!-- <div class="form-row">
-              
-           
-          </div> -->
                       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-                      <p class="mt-5 mb-3 text-muted text-center">© 2020</p>
                     </form>
+                    <!-- end of sign up form  -->
                   </div>
                 </div>
               </div>

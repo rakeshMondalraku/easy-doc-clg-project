@@ -161,8 +161,7 @@
         <div class="popup_inner">
             <h3>Sign Up</h3>
             <!-- SignUp form -->
-            <form action="{{ action('SignupController@store') }}" method="POST">
-                {{ csrf_field() }}
+            <form action="" method="POST">
                 <div class="row">
 
                     <div class="col-xl-12">
