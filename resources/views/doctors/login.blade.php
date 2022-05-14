@@ -81,7 +81,7 @@
                           <input type="text" name="specialization" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="exprience">Exprience</label>
+                          <label for="experience">Experience</label>
                           <input type="text" class="form-control" name="exprience">
                         </div>
                         <div class="form-group col-md-6">
