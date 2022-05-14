@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminDoctorController;
 use App\Http\Controllers\AdminPatientController;
+use App\Http\Controllers\DoctorSignupController;
+
 
 Route::get('/', function () {
     return view('home');
@@ -40,6 +42,9 @@ Route::get('/doctors/approved_appointments', function () {
 });
 Route::get('/doctors/profile', function () {
     return view('doctors.profile');
+});
+Route::prefix('doctor')->name('doctor.')->group(function () {
+    Route::post('/signup', [DoctorSignupController::class, 'signup'])->name('signup');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {

@@ -43,7 +43,7 @@
         <div class="signin">
           <p>Don't have an account? <a href="#" data-toggle="modal" data-target=".modal-full">Sign Up</a></p>
         </div>
-
+      </form>
 
         <!-- Fullscreen modal -->
         <div class="modal fade modal-full" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -57,63 +57,64 @@
                   <div class="row align-items-center h-100">
                     <h2 style="text-align:center; width:100%">Registration Form</h2>
                     <!-- start of sign up form  -->
-                    <form class="col-lg-6 col-md-8 col-10 mx-auto" action="welcome.php" method="POST" enctype="">
+                    <form class="col-lg-12 col-md-8 col-10 mx-auto" action="{{route('doctor.signup')}}" method="POST" enctype="">
+                      @csrf
                       <div class="form-row">
                         <div class="form-group col-md-6">
                           <label for="name">Name</label>
-                          <input type="test" class="form-control" id="name">
+                          <input type="test" class="form-control" name="name">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="age">Age</label>
-                          <input type="text" id="age" class="form-control">
+                          <input type="text" name="age" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="gender">Gender</label>
-                          <input type="text" id="gender" class="form-control">
+                          <input type="text" name="gender" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="qualification">Qualification</label>
-                          <input type="text" id="qualification" class="form-control">
+                          <input type="text" name="qualification" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="specialization">Specialization</label>
-                          <input type="text" id="specialization" class="form-control">
+                          <input type="text" name="specialization" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="exprience">Exprience</label>
-                          <input type="text" class="form-control" id="exprience">
+                          <input type="text" class="form-control" name="exprience">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="email">Email</label>
-                          <input type="email" class="form-control" id="email">
+                          <input type="email" class="form-control" name="email">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="mobile_no">Mobile No</label>
-                          <input type="tel" class="form-control" id="mobile_no">
+                          <input type="tel" class="form-control" name="mobile_no">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="password">New Password</label>
-                          <input type="password" class="form-control" id="password">
+                          <input type="password" class="form-control" name="password">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="password">Confirm Password</label>
-                          <input type="password" class="form-control" id="password">
+                          <input type="password" class="form-control" name="password">
                         </div>
                         <div class="form-group col-md-12">
                           <label for="clinic_timing">Clinic Timings</label>
-                          <input type="text" class="form-control" id="clinic_timing">
+                          <input type="text" class="form-control" name="clinic_timing">
                         </div>
                         <div class="form-group col-md-12">
                           <label for="clinic_address">Clinic Address</label>
-                          <textarea class="form-control" id="clinic_address" rows="4"></textarea>
+                          <textarea class="form-control" name="clinic_address" rows="4"></textarea>
                         </div>
                         <div class="form-group col-md-6">
                           <label for="file">Doctor's Certificate</label>
-                          <input type="file" class="" id="file">
+                          <input type="file" class="" name="file">
                         </div>
                         <div class="form-group col-md-6">
                           <label for="img">Your Image</label>
-                          <input type="file" class="" id="img">
+                          <input type="file" class="" name="img">
                         </div>
                       </div>
                       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
@@ -124,9 +125,8 @@
               </div>
             </div>
           </div>
-        </div> <!-- small modal -->
-      </form>
-    </div>
+        </div>
+      </div>
   </div>
 
 
