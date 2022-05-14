@@ -24,6 +24,11 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 @include('admin.layout.header')
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <h1 class="h3 mb-2 text-gray-800">@yield('title')</h1>
+                    @yield('content')
+                </div>
             </div>
         </div>
 

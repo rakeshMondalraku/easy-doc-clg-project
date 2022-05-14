@@ -40,26 +40,39 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Admin Panel Login</h1>
                                     </div>
-                                    <form class="user">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    <form class="user" action="{{ route('admin.login.login') }}"
+                                        method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                                                name="email" autocomplete="email" value="{{ old('email') }}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                placeholder="Password" name="password" autocomplete="current-password"
+                                                value="{{ old('password') }}">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"
+                                                    name="remember">
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button class="btn btn-primary btn-user btn-block" type="submit">
                                             Login
-                                        </a>
+                                        </button>
                                     </form>
                                 </div>
                             </div>
