@@ -32,7 +32,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item popup-with-form" href="#login-form">Patient's Login</a>
                             <a class="dropdown-item" href="{{ url('/doctors/login') }}">Doctor's Login</a>
-                            <a class="dropdown-item" href="{{ url('/admin') }}">Administrator Login</a>
+                            <a class="dropdown-item" href="{{ url('/admin/login') }}">Administrator Login</a>
                         </div>
                     </div>
                     <div class="col-12">
