@@ -48,3 +48,12 @@ Route::get('/doctors/profile', function () {
     return view('doctors.profile');
 });
 
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/login', function () {
+        return view('admin.login');
+    });
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+});
