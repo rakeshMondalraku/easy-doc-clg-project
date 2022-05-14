@@ -5,9 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Admin;
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
     public function __construct()
     {
