@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\AdminDashboardController;
 
 Route::get('/', function () {
     return view('home');
