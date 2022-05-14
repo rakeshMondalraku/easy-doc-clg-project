@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
-    }
-
     public function showLoginForm()
     {
         return view('admin.login');
@@ -45,10 +40,5 @@ class AdminLoginController extends Controller
         $request->session()->invalidate();
 
         return redirect('/admin/login');
-    }
-
-    protected function guard() // And now finally this is our custom guard name
-    {
-        return Auth::guard('admin');
     }
 }
