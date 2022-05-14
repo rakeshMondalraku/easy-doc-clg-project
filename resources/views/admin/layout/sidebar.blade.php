@@ -47,7 +47,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ route('admin.doctors') }}">
             <i class="fas fa-fw fa-user-md"></i>
             <span>Manage Doctors</span>
         </a>
@@ -62,7 +62,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ route('admin.patients') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Manage Patients</span>
         </a>

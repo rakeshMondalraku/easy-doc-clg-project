@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminDoctorController;
+use App\Http\Controllers\AdminPatientController;
 
 Route::get('/', function () {
     return view('home');
@@ -49,5 +51,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('/doctors', [AdminDoctorController::class, 'index'])->name('doctors');
+
+        Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
     });
 });
