@@ -23,6 +23,9 @@ class Authenticate extends Middleware
             if (Route::is('doctor.*')) {
                 return route('doctor.login');
             }
+            if (Route::is('patient.*')) {
+                return route('profile');
+            }
 
             return route('login');
         }

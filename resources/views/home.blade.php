@@ -15,7 +15,7 @@
                                     For Hole Family </h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
-                                <a class="popup-with-form boxed-btn3" href="#test-form ">Make An Appointment</a>
+                                <a class="boxed-btn3" href="{{url('/doctors')}}">Make An Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                                     For Hole Family </h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
-                                <a class="popup-with-form boxed-btn3" href="#test-form ">Make An Appointment</a>
+                                <a class="boxed-btn3" href="{{url('/doctors')}}">Make An Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                                     For Hole Family </h3>
                                 <p>In healthcare sector, service excellence is the facility of <br> the hospital as
                                     healthcare service provider to consistently.</p>
-                                <a class="popup-with-form boxed-btn3" href="#test-form ">Make An Appointment</a>
+                                <a class="boxed-btn3" href="{{url('/doctors')}}">Make An Appointment</a>
                             </div>
                         </div>
                     </div>

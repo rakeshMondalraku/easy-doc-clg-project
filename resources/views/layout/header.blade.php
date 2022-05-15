@@ -23,6 +23,19 @@
                             </nav>
                         </div>
                     </div>
+                    @if(auth()->guard('patient')->user())
+                    <div class="dropdown show">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{auth()->guard('patient')->user()->name}}
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('patient.profile')}}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('patient.logout') }}">Logout</a>
+                        </div>
+                    </div>
+                    @else
                     <div class="dropdown show">
                         <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,10 +44,11 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item popup-with-form" href="#login-form">Patient's Login</a>
-                            <a class="dropdown-item" href="{{ url('/doctors/login') }}">Doctor's Login</a>
+                            <a class="dropdown-item" href="{{ route('doctor.login') }}">Doctor's Login</a>
                             <a class="dropdown-item" href="{{ url('/admin/login') }}">Administrator Login</a>
                         </div>
                     </div>
+                    @endif
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>
                     </div>

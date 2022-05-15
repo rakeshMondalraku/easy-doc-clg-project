@@ -18,13 +18,15 @@ return new class extends Migration
             $table->string('name');
             $table->integer('age');
             $table->string('gender');
+            $table->string('qualification');
+            $table->string('registration_number');
             $table->string('specialization_id');
-            $table->string('exprience');
+            $table->string('experience');
             $table->string('mobile')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

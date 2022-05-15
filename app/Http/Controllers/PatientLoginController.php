@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DoctorLoginController extends Controller
+class PatientLoginController extends Controller
 {
-
-	public function index()
+    public function index()
 	{
-		return view('doctor.login');
+		return view('home');
 	}
 
 	public function login(Request $request)
@@ -21,26 +20,25 @@ class DoctorLoginController extends Controller
 			'password' => ['required']
 		]);
 
-		$loginAttempt = Auth::guard('doctor')->attempt([
+		$loginAttempt = Auth::guard('patient')->attempt([
 			'email' => $request->email,
 			'password' => $request->password
 		], $request->remember);
 
 		if ($loginAttempt) {
-			dd('done');
 			$request->session()->regenerate();
-			return redirect()->intended('/doctor/dashboard');
+			return response()->json(['message' => 'Login success'], 200);
 		} else {
-			return redirect()->back()->withErrors(['Invalid login credentials']);
+			return response()->json(['message' => 'Invalid login credentials'], 400);
 		}
 	}
 
 	public function logout(Request $request)
 	{
-		Auth::guard('doctor')->logout();
+		Auth::guard('patient')->logout();
 
 		$request->session()->invalidate();
 
-		return redirect('/doctor/login');
+		return redirect('/');
 	}
 }

@@ -129,27 +129,28 @@
 </form>
 <!-- appointment form itself end -->
 <!-- login form itself end-->
-<form id="login-form" class="white-popup-block mfp-hide">
-    <div class="popup_box ">
+<x-error-alert></x-error-alert>
+<form id="login-form" class="white-popup-block mfp-hide" action="{{ route('patient.login') }}" method="POST">
+    @csrf
+    <div class="popup_box" id="login-modal">
         <div class="popup_inner">
             <h3>Log In</h3>
-            <form action="#">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <input type="email" placeholder="Email">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="password" placeholder="Password">
-                    </div>
-
-                    <div class="col-xl-12">
-                        <button type="submit" class="boxed-btn3">Login</button>
-                    </div>
-                    <div class="col-xl-12">
-                        <p>Don't have an account? <a href="#signin-form" class="popup-with-form" style="color: blue;"> Sign Up</a></p>
-                    </div>
+            <div id="add-error-message"></div>
+            <div class="row">
+                <div class="col-xl-6">
+                    <input type="email" placeholder="Email" aria-describedby="emailHelp" name="email" autocomplete="email" value="{{ old('email') }}">
                 </div>
-            </form>
+                <div class="col-xl-6">
+                    <input type="password" placeholder="Password" name="password" autocomplete="current-password" value="{{ old('password') }}">
+                </div>
+
+                <div class="col-xl-12">
+                    <button type="submit" class="boxed-btn3">Login</button>
+                </div>
+                <div class="col-xl-12">
+                    <p>Don't have an account? <a href="#signin-form" class="popup-with-form" style="color: blue;"> Sign Up</a></p>
+                </div>
+            </div>
         </div>
     </div>
 </form>
