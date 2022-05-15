@@ -221,13 +221,10 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
-                                </p>
+                                <p>"To solve a difficult problem in medicine, don't study it directly,<br> but rather pursue a curiosity about nature and the rest will follow. Do basic research."<br>
+                                   </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Roger Kornberg, PhD</h4>
                                 </div>
                             </div>
                         </div>
@@ -242,13 +239,10 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
+                                <p>“We practice medicine that our historical ancestors could only dream of,<br> and we have access to amazing treatments and cures for our patients on a daily basis.”
                                 </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Suneel Dhand, MD </h4>
                                 </div>
                             </div>
                         </div>
@@ -263,13 +257,10 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
-                                </p>
+                                <p>"Medicine really matured me as a person because, as a physician,<br> you're obviously dealing with life and death issues… if you can handle that, you can handle anything."
+                                <br>       </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Ken Jeong, MD</h4>
                                 </div>
                             </div>
                         </div>
