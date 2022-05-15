@@ -19,6 +19,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/doctors', function () {
+    return view('doctors');
+});
+
 
 Route::prefix('patient')->name('patient.')->group(function () {
     Route::middleware('guest:patient')->group(function () {
