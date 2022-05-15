@@ -25,6 +25,8 @@ Route::get('/profile', function () {
 #region Doctor
 
 use App\Http\Controllers\Doctor\DoctorAuthController;
+use App\Http\Controllers\Doctor\DoctorDashboardController;
+use App\Http\Controllers\Doctor\DoctorProfileController;
 
 Route::prefix('doctor')->name('doctor.')->group(function () {
     Route::middleware('guest:doctor')->group(function () {
@@ -41,6 +43,11 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
         Route::get('/logout', [DoctorAuthController::class, 'logout'])->name('logout');
+        Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile');
+        Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile');
+        Route::get('/change-password', [AdminProfileController::class, 'showChangePassword'])->name('change-password');
+        Route::post('/change-password', [AdminProfileController::class, 'updatePassword'])->name('change-password');
+        Route::get('/dashboard', [DoctorDashboardController::class, 'index'])->name('dashboard');
     });
 });
 
