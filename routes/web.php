@@ -1,12 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminSpecializationController;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\DoctorLoginController;
-use App\Http\Controllers\DoctorSignupController;
-use App\Http\Controllers\PatientLoginController;
-use App\Http\Controllers\PatientProfileController;
 
 #region Patients
 
@@ -43,48 +37,32 @@ Route::prefix('patient')->name('patient.')->group(function () {
 
 #endregion
 
-#region Doctors
-
-Route::get('/doctors', function () {
-    return view('doctors');
-});
-Route::get('/doctors/login', function () {
-    return view('doctors.login');
-});
-Route::get('/doctors/welcome', function () {
-    return view('doctors.welcome');
-});
-Route::get('/doctors/appointments', function () {
-    return view('doctors.appointments');
-});
-Route::get('/doctors/approved_appointments', function () {
-    return view('doctors.approved_appointments');
-});
-Route::get('/doctors/profile', function () {
-    return view('doctors.profile');
-});
-Route::prefix('doctor')->name('doctor.')->group(function () {
-    Route::post('/signup', [DoctorSignupController::class, 'signup'])->name('signup');
-});
-
-#endregion
-
-
 #region Doctor
+
+use App\Http\Controllers\Doctor\DoctorAuthController;
+use App\Http\Controllers\Doctor\DoctorDashboardController;
+use App\Http\Controllers\Doctor\DoctorProfileController;
 
 Route::prefix('doctor')->name('doctor.')->group(function () {
     Route::middleware('guest:doctor')->group(function () {
         Route::get('/', function () {
             return redirect()->route('doctor.login');
         });
-        Route::controller(DoctorLoginController::class)->group(function () {
+        Route::controller(DoctorAuthController::class)->group(function () {
             Route::get('/login', 'index')->name('login');
             Route::post('/login', 'login')->name('login');
+            Route::get('/signup', 'showSignupForm')->name('signup');
+            Route::post('/signup', 'signup')->name('signup');
         });
     });
 
     Route::middleware('auth:admin')->group(function () {
-        Route::get('/logout', [DoctorLoginController::class, 'logout'])->name('logout');
+        Route::get('/logout', [DoctorAuthController::class, 'logout'])->name('logout');
+        Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile');
+        Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile');
+        Route::get('/change-password', [AdminProfileController::class, 'showChangePassword'])->name('change-password');
+        Route::post('/change-password', [AdminProfileController::class, 'updatePassword'])->name('change-password');
+        Route::get('/dashboard', [DoctorDashboardController::class, 'index'])->name('dashboard');
     });
 });
 
@@ -97,6 +75,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminDoctorController;
 use App\Http\Controllers\Admin\AdminPatientController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminSpecializationController;
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest:admin')->group(function () {

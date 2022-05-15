@@ -41,6 +41,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Doctor Login</h1>
                                     </div>
                                     <x-error-alert></x-error-alert>
+                                    <x-success-alert></x-success-alert>
                                     <form class="user" action="{{ route('doctor.login') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
@@ -66,7 +67,7 @@
                                         </button>
                                         <p class="mt-4 mb-0 text-center">
                                             Don't have an account?
-                                            <a href="{{ url('/') }}" class="text-decoration-none ml-1">
+                                            <a href="{{ route('doctor.signup') }}" class="text-decoration-none ml-1">
                                                 Sign Up
                                             </a>
                                         </p>
