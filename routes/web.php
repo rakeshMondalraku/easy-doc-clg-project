@@ -3,11 +3,6 @@
 use App\Http\Controllers\Admin\AdminSpecializationController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AdminLoginController;
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdminDoctorController;
-use App\Http\Controllers\AdminPatientController;
-use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\DoctorLoginController;
 use App\Http\Controllers\DoctorSignupController;
 
@@ -79,6 +74,12 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
 #endregion
 
 #region Admin
+
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminDoctorController;
+use App\Http\Controllers\Admin\AdminPatientController;
+use App\Http\Controllers\Admin\AdminProfileController;
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest:admin')->group(function () {
