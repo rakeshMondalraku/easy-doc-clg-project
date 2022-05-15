@@ -46,7 +46,7 @@
         Doctors
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.doctors*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.doctors') }}">
             <i class="fas fa-fw fa-user-md"></i>
             <span>Manage Doctors</span>
@@ -61,7 +61,7 @@
         Patients
     </div>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('admin.patients*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.patients') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Manage Patients</span>
