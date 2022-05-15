@@ -41,8 +41,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Admin Panel Login</h1>
                                     </div>
                                     <x-error-alert></x-error-alert>
-                                    <form class="user" action="{{ route('admin.login.login') }}"
-                                        method="POST">
+                                    <form class="user" action="{{ route('admin.login') }}" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
@@ -65,6 +64,12 @@
                                         <button class="btn btn-primary btn-user btn-block" type="submit">
                                             Login
                                         </button>
+                                        <p class="mt-4 mb-0 text-center">
+                                            <a href="{{ url('/') }}" class="text-decoration-none">
+                                                <i class="fas fa-arrow-left mr-2"></i>
+                                                Go back to home
+                                            </a>
+                                        </p>
                                     </form>
                                 </div>
                             </div>

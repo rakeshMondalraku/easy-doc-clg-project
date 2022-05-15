@@ -58,13 +58,18 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
 #region Admin
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::controller(AdminLoginController::class)->group(function () {
-        Route::get('/login', 'showLoginForm')->name('login');
-        Route::post('/login', 'login')->name('login.login');
-        Route::get('/logout', 'logout')->name('logout');
+    Route::middleware('guest:admin')->group(function () {
+        Route::get('/', function () {
+            return redirect()->route('admin.login');
+        });
+        Route::controller(AdminLoginController::class)->group(function () {
+            Route::get('/login', 'showLoginForm')->name('login');
+            Route::post('/login', 'login')->name('login');
+        });
     });
 
     Route::middleware('auth:admin')->group(function () {
+        Route::get('/logout', [AdminLoginController::class, 'logout'])->name('logout');
         Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile');
         Route::post('/profile', [AdminProfileController::class, 'update'])->name('profile');
         Route::get('/change-password', [AdminProfileController::class, 'showChangePassword'])->name('change-password');
