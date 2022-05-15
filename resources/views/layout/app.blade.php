@@ -11,6 +11,7 @@
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png') }}">
     <!-- Place favicon.ico in the root directory -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('layout.css')
 

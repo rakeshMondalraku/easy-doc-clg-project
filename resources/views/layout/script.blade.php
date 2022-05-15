@@ -22,16 +22,44 @@
 <script src="{{ asset('js/jquery.form.js') }}"></script>
 <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/mail-script.js') }}"></script>
+<script src="{{ asset('admin-assets/vendor/jquery-form/jquery.form.min.js') }}"></script>
+<script src="{{ asset('admin-assets/vendor/jquery-loading-overlay/loadingoverlay.min.js') }}"></script>
+<script src="{{ asset('admin-assets/vendor/toastr/toastr.min.js') }}"></script>
 
 <script src="{{ asset('js/main.js') }}"></script>
 <script>
-    $('#datepicker').datepicker({
-        iconsLibrary: 'fontawesome',
-        icons: {
-            rightIcon: '<span class="fa fa-caret-down"></span>'
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    $(document).ready(function() {
-        $('.js-example-basic-multiple').select2();
+    $('#login-form').ajaxForm({
+    resetForm: true,
+    beforeSubmit: function() {
+        $('#add-error-message').html('');
+        $('#login-modal').LoadingOverlay('show');
+    },
+    success: function(response) {
+        location.href="{{ route('patient.profile')}}";
+    },
+    error: function(response) {
+        $('#login-modal').LoadingOverlay('hide');
+        const errors = response.responseJSON;
+        let errorsHtml = '<div class="alert alert-danger"><ul>';
+
+        if (response.status == 422) {
+            $.each(errors.errors, function(k, v) {
+                errorsHtml += '<li>' + v + '</li>';
+            });
+        } else {
+            errorsHtml += '<li>' + errors.message + '</li>';
+        }
+
+        errorsHtml += '</ul></di>';
+
+        $('#add-error-message').html(errorsHtml);
+    },
     });
+
+
 </script>

@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DoctorLoginController;
 use App\Http\Controllers\DoctorSignupController;
+use App\Http\Controllers\PatientLoginController;
+use App\Http\Controllers\PatientProfileController;
 
 #region Patients
 
@@ -20,8 +22,23 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+
+Route::prefix('patient')->name('patient.')->group(function () {
+    Route::middleware('guest:patient')->group(function () {
+        Route::get('/', function () {
+            return redirect()->route('home');
+        });
+        Route::controller(PatientLoginController::class)->group(function () {
+            Route::get('/login', 'index')->name('login');
+            Route::post('/login', 'login')->name('login');
+        });
+    });
+
+    Route::middleware('auth:patient')->group(function () {
+        Route::get('/logout', [PatientLoginController::class, 'logout'])->name('logout');
+        Route::get('/profile', [PatientProfileController::class, 'index'])->name('profile');
+        Route::post('/profile', [PatientProfileController::class, 'update'])->name('profile');
+    });
 });
 
 #endregion
