@@ -42,11 +42,11 @@
                 <img class="img-profile rounded-circle" src="{{ asset('admin-assets/img/undraw_profile.svg') }}">
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('admin.logout') }}">
+                <a class="dropdown-item" href="{{ route('admin.profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="{{ route('admin.logout') }}">
+                <a class="dropdown-item" href="{{ route('admin.change-password') }}">
                     <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
                     Change Password
                 </a>

@@ -40,15 +40,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Admin Panel Login</h1>
                                     </div>
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
+                                    <x-error-alert></x-error-alert>
                                     <form class="user" action="{{ route('admin.login.login') }}"
                                         method="POST">
                                         @csrf
