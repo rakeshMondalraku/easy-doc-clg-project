@@ -69,6 +69,21 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Resources
+    </div>
+
+    <li class="nav-item {{ request()->routeIs('admin.specializations*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.specializations.index') }}">
+            <i class="fas fa-user-tag"></i>
+            <span>Specializations</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

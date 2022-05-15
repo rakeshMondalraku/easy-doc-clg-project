@@ -20,6 +20,10 @@ class Authenticate extends Middleware
                 return route('admin.login');
             }
 
+            if (Route::is('doctor.*')) {
+                return route('doctor.login');
+            }
+
             return route('login');
         }
     }

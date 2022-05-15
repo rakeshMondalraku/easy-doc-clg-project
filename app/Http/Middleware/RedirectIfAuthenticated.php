@@ -26,6 +26,11 @@ class RedirectIfAuthenticated
                 if ($guard == 'admin') {
                     return redirect('/admin/dashboard');
                 }
+
+                if ($guard == 'doctor') {
+                    return redirect('/doctor/dashboard');
+                }
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }

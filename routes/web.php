@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminSpecializationController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminLoginController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminDoctorController;
 use App\Http\Controllers\AdminPatientController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\DoctorLoginController;
 use App\Http\Controllers\DoctorSignupController;
 
 #region Patients
@@ -55,6 +57,27 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
 
 #endregion
 
+
+#region Doctor
+
+Route::prefix('doctor')->name('doctor.')->group(function () {
+    Route::middleware('guest:doctor')->group(function () {
+        Route::get('/', function () {
+            return redirect()->route('doctor.login');
+        });
+        Route::controller(DoctorLoginController::class)->group(function () {
+            Route::get('/login', 'index')->name('login');
+            Route::post('/login', 'login')->name('login');
+        });
+    });
+
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/logout', [DoctorLoginController::class, 'logout'])->name('logout');
+    });
+});
+
+#endregion
+
 #region Admin
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -63,7 +86,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             return redirect()->route('admin.login');
         });
         Route::controller(AdminLoginController::class)->group(function () {
-            Route::get('/login', 'showLoginForm')->name('login');
+            Route::get('/login', 'index')->name('login');
             Route::post('/login', 'login')->name('login');
         });
     });
@@ -77,6 +100,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::get('/doctors', [AdminDoctorController::class, 'index'])->name('doctors');
         Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
+        Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
+
+        Route::resource('specializations', AdminSpecializationController::class);
     });
 });
 

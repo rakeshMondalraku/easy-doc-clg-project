@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') - Admin Panel</title>
 
@@ -26,7 +27,14 @@
                 @include('admin.layout.header')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <h1 class="h3 mb-2 text-gray-800">@yield('title')</h1>
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <h1 class="h3 mb-2 text-gray-800">@yield('title')</h1>
+                        </div>
+                        <div class="col-md-4">
+                            @yield('title-right')
+                        </div>
+                    </div>
                     @yield('content')
                 </div>
             </div>
