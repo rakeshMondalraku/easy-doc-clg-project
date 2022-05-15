@@ -35,16 +35,14 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="welcome_docmed_info">
-                        <h2>Welcome to Docmed</h2>
+                        <h2>Welcome to EasyDoc</h2>
                         <h3>Best Care For Your <br>
                             Good Health</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem.
-                            It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable
-                            projecting expression.</p>
+                        <p>Providing high-quality, trusted, and accessible healthcare is our reason for being</p>
                         <ul>
-                            <li> <i class="flaticon-right"></i> Apartments frequently or motionless. </li>
-                            <li> <i class="flaticon-right"></i> Duis aute irure dolor in reprehenderit in voluptate.</li>
-                            <li> <i class="flaticon-right"></i> Voluptatem quia voluptas sit aspernatur. </li>
+                            <li> <i class="flaticon-right"></i> Completely Private and Confidential </li>
+                            <li> <i class="flaticon-right"></i> 24 X 7 Access to Doctors</li>
+                            <li> <i class="flaticon-right"></i>Starts with Very Reasonable Price </li>
                         </ul>
                         <!-- <a href="#" class="boxed-btn3-white-2">Learn More</a> -->
                     </div>
@@ -65,13 +63,11 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
+                                <p>"To solve a difficult problem in medicine, don't study it directly,<br> but rather pursue a curiosity about nature and the rest will follow. Do basic research."<br>
+                                   
                                 </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Roger Kornberg, PhD</h4>
                                 </div>
                             </div>
                         </div>
@@ -86,13 +82,10 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
+                                <p>“We practice medicine that our historical ancestors could only dream of,<br> and we have access to amazing treatments and cures for our patients on a daily basis.”
                                 </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Suneel Dhand, MD </h4>
                                 </div>
                             </div>
                         </div>
@@ -107,13 +100,10 @@
                                 <div class="quote">
                                     <i class="flaticon-straight-quotes"></i>
                                 </div>
-                                <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                    sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
-                                    <br>
-                                    Fusce ac mattis nulla. Morbi eget ornare dui.
+                                <p>"Medicine really matured me as a person because, as a physician,<br> you're obviously dealing with life and death issues… if you can handle that, you can handle anything."
                                 </p>
                                 <div class="testmonial_author">
-                                    <h4>Asana Korim</h4>
+                                    <h4>Ken Jeong, MD</h4>
                                 </div>
                             </div>
                         </div>
@@ -127,27 +117,25 @@
     <div class="whole-wrap">
         <div class="container box_1170">
             <div class="section-top-border">
-                <h3 class="mb-30">Better Accomodation</h3>
+                <h3 class="mb-30">COMPASSION</h3>
                 <div class="row">
                     <div class="col-md-3">
                         <img src="img/elements/d.jpg" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error at saepe consequuntur quidem
-                            expedita tempore, recusandae dolorum magni enim distinctio sunt impedit maiores fugiat obcaecati
-                            aut repellat accusamus eum asperiores repellendus corrupti, fugit in provident eos! Dignissimos,
-                            libero.</p>
+                        <p>We have a deeper level of patient understanding and are always empathetic to their needs.
+                             This encourages a culture of providing a higher standard of patient-centred care.
+                              We respect each other and our patients, and ensure that their needs are met with dignity.
+                               We rise to the occasion each time for we recognise the positive social impact we can create.</p>
                     </div>
                 </div>
             </div>
             <div class="section-top-border ">
-                <h3 class="mb-30">Better Doctors</h3>
+                <h3 class="mb-30">EXCELLENCE</h3>
                 <div class="row">
                     <div class="col-md-9 mt-sm-20">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error at saepe consequuntur quidem
-                            expedita tempore, recusandae dolorum magni enim distinctio sunt impedit maiores fugiat obcaecati
-                            aut repellat accusamus eum asperiores repellendus corrupti, fugit in provident eos! Dignissimos,
-                            libero.</p>
+                        <p>We ask more of ourselves and are always passionate about achieving the highest standards of medical expertise and patient care.
+                             We understand that being the best is a continuous journey of becoming better versions of ourselves every day.</p>
                     </div>
                     <div class="col-md-3">
                         <img src="img/elements/d.jpg" alt="" class="img-fluid">
@@ -156,17 +144,27 @@
                 </div>
             </div>
             <div class="section-top-border">
-                <h3 class="mb-30">Better Treatment</h3>
+                <h3 class="mb-30">EFFICIENCY</h3>
                 <div class="row">
                     <div class="col-md-3">
                         <img src="img/elements/d.jpg" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error at saepe consequuntur quidem
-                            expedita tempore, recusandae dolorum magni enim distinctio sunt impedit maiores fugiat obcaecati
-                            aut repellat accusamus eum asperiores repellendus corrupti, fugit in provident eos! Dignissimos,
-                            libero.</p>
+                        <p>We create a responsive healing environment, by being nimble to the needs of our patients and delivering what they really need with precision and timing.
+                             We are focused yet fast, personal yet practical, advanced yet seamless in delivering the exact care our patients need.</p>
                     </div>
+                </div>
+            </div>
+            <div class="section-top-border ">
+                <h3 class="mb-30">CONSISTENCY</h3>
+                <div class="row">
+                    <div class="col-md-9 mt-sm-20">
+                        <p>We always deliver on our commitment and ensure the highest level of patient care is met at every stage, every time.
+                             We believe that only through consistency can we achieve our patients’ trust and fulfil our goals</p>.</div>
+                    <div class="col-md-3">
+                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                    </div>
+
                 </div>
             </div>
         </div>
