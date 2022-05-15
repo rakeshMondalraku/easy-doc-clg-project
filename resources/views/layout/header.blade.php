@@ -6,7 +6,7 @@
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img style="width: 150px; height:50px" src="img/easydocloog.png" alt="">
+                                <img style="width: 150px; height:50px" src="{{asset('img/easydocloog.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -18,7 +18,6 @@
                                     <li><a href="{{ url('/about') }}">About Us</a></li>
                                     <li><a href="{{ url('/doctors') }}">Doctors</a></li>
                                     <li><a href="{{ url('/contact') }}">Contact</a></li>
-                                    <li><a href="{{ url('/profile') }}">Profile</a></li>
                                 </ul>
                             </nav>
                         </div>

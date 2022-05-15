@@ -187,7 +187,7 @@
                             <p>Please call this number</p>
                         </div>
                         <div class="info_button">
-                            <a href="#" class="boxed-btn3-white"> +91 123456789</a>
+                            <a href="#" class="boxed-btn3-white"> +91 9382139976</a>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                             <p>Click the button below</p>
                         </div>
                         <div class="info_button">
-                            <a href="#test-form" class="boxed-btn3-white popup-with-form">Make an Appointment</a>
+                            <a href="{{ url('/doctors')}}" class="boxed-btn3-white">Make an Appointment</a>
                         </div>
                     </div>
                 </div>

@@ -6,8 +6,8 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="footer_widget">
                         <div class="footer_logo">
-                            <a href="#">
-                                <img style="width: 150px; height:50px" src="img/easydocloog.png" alt="">
+                            <a href="{{url('/')}}">
+                                <img style="width: 150px; height:50px" src="{{asset('img/easydocloog.png')}}" alt="">
                             </a>
                         </div>
                         <p>
@@ -41,9 +41,9 @@
                             Useful Links
                         </h3>
                         <ul>
-                            <li><a href="about.php">About</a></li>
-                            <li><a href="contact.php"> Contact</a></li>
-                            <li><a href="#test-form" class="popup-with-form"> Appointment</a></li>
+                            <li><a href="{{url('/about')}}">About</a></li>
+                            <li><a href="{{url('/contact')}}"> Contact</a></li>
+                            <li><a href="{{url('/doctors')}}">Appointment</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,8 +53,8 @@
                             Address
                         </h3>
                         <p>
-                            200, D-block, Barackpore <br>
-                            +91 123456789 <br>
+                            Bara Kanthalia, Barackpore, North 24 Parganas <br>
+                            +91 9382139976 <br>
                             easydoc@contact.com
                         </p>
                     </div>
@@ -70,8 +70,7 @@
                     <p class="copy_right text-center">
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This website is in testing by college<a href="https://rerf.com" target="_blank"> GROUP 12</a>
-
+                        </script> All rights reserved | This website is in Made by <a href="https://www.rerf.in/" target="_blank"> GROUP 12</a> ,4th year, CSE
                     </p>
                 </div>
             </div>
