@@ -197,10 +197,7 @@
                     <button type="submit" class="boxed-btn3">Sign Up</button>
                 </div>
                 <div class="col-xl-12">
-                    <p>Already have an account go to  <a href="#login-form" class="popup-with-form" style="color: blue;">login</a></p>
-                </div>
-                <div class="col-xl-12">
-                    <p>Go to home <a href="{{ url('/') }}" class="popup-with-form" style="color: blue;">Home</a></p>
+                    <p>Already have an account? <a href="#login-form" class="popup-with-form" style="color: blue;">Login</a></p>
                 </div>
             </div>
             <!-- sign up form -->
