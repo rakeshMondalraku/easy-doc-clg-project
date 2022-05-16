@@ -156,45 +156,53 @@
 <!-- login form itself end -->
 
 <!--sign in  form itself end-->
-<form id="signin-form" class="white-popup-block mfp-hide">
-    <div class="popup_box ">
-        <div class="popup_inner">
-            <h3>Sign Up</h3>
+<form id="signin-form" class="white-popup-block mfp-hide" action="{{ route('patient.signup') }}" method="POST">
+    @csrf
+<div class="popup_box" id="signup-model">
+    <div class="popup_inner">
+        <h3>Sign Up</h3>
             <!-- SignUp form -->
-            <form action="" method="POST">
-                <div class="row">
-
-                    <div class="col-xl-12">
-                        <input type="email" placeholder="Email" name="signupemail">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="text" placeholder="Name" name="signupname">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="text" placeholder="Phone no." name="signupmobile">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="text" placeholder="Gender" name="signupgender">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="text" placeholder="Age" name="signupage">
-                    </div>
-                    <div class="col-xl-12">
-                        <input type="text" placeholder="Address" name="signupaddress">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="password" placeholder="Password" name="signuppassword">
-                    </div>
-                    <div class="col-xl-6">
-                        <input type="password" placeholder="Confirm Password" name="signupcpassword">
-                    </div>
-
-
-                    <div class="col-xl-12">
-                        <button type="submit" class="boxed-btn3">Sign Up</button>
-                    </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <input type="email" placeholder="Email" name="email" value="{{ old('email') }}" required>
                 </div>
-            </form>
+                <div class="col-xl-6">
+                    <input type="text" placeholder="Name" name="name" value="{{ old('name') }}" required>
+                </div>
+                <div class="col-xl-6">
+                    <input type="text" placeholder="Phone no." name="mobile" value="{{ old('mobile') }}" required>
+                </div>
+                <div class="col-xl-6">
+                    <select name="gender" class="form-control" placeholder="Gender" required>
+                        <option value="" {{ !old('gender') ? 'selected' : '' }} disabled>Choose your Gender</option>
+                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male
+                        </option>
+                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female
+                        </option>
+                    </select>
+                </div>
+                <div class="col-xl-6">
+                    <input type="text" placeholder="Age" name="age" value="{{ old('age') }}" required>
+                </div>
+                <div class="col-xl-12">
+                    <input type="text" placeholder="Address" name="address" value="{{ old('address') }}" required>
+                </div>
+                <div class="col-xl-6">
+                    <input type="password" placeholder="New Password" name="password" value="{{ old('password') }}" autocomplete="new-password" required>
+                </div>
+                <div class="col-xl-6">
+                    <input type="password" placeholder="Confirm Password" name="password_confirmation" value="{{ old('password_confirmation') }}" autocomplete="new-password" required>
+                </div>
+                <div class="col-xl-12">
+                    <button type="submit" class="boxed-btn3">Sign Up</button>
+                </div>
+                <div class="col-xl-12">
+                    <p>Already have an account go to  <a href="#login-form" class="popup-with-form" style="color: blue;">login</a></p>
+                </div>
+                <div class="col-xl-12">
+                    <p>Go to home <a href="{{ url('/') }}" class="popup-with-form" style="color: blue;">Home</a></p>
+                </div>
+            </div>
             <!-- sign up form -->
         </div>
     </div>

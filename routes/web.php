@@ -32,6 +32,7 @@ Route::prefix('patient')->name('patient.')->group(function () {
         Route::controller(PatientLoginController::class)->group(function () {
             Route::get('/login', 'index')->name('login');
             Route::post('/login', 'login')->name('login');
+            Route::post('/signup', 'signup')->name('signup');
         });
     });
 

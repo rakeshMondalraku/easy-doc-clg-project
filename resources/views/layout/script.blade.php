@@ -60,6 +60,33 @@
         $('#add-error-message').html(errorsHtml);
     },
     });
+    $('#signin-form').ajaxForm({
+    resetForm: true,
+    beforeSubmit: function() {
+        $('#add-error-message').html('');
+        $('#signup-model').LoadingOverlay('show');
+    },
+    success: function(response) {
+        location.href="{{ route('patient.profile')}}";
+    },
+    error: function(response) {
+        $('#signup-model').LoadingOverlay('hide');
+        const errors = response.responseJSON;
+        let errorsHtml = '<div class="alert alert-danger"><ul>';
+
+        if (response.status == 422) {
+            $.each(errors.errors, function(k, v) {
+                errorsHtml += '<li>' + v + '</li>';
+            });
+        } else {
+            errorsHtml += '<li>' + errors.message + '</li>';
+        }
+
+        errorsHtml += '</ul></di>';
+
+        $('#add-error-message').html(errorsHtml);
+    },
+    });
 
 
 </script>
