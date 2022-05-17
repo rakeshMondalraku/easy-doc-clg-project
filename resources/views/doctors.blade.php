@@ -10,7 +10,7 @@
                 <div class="col-xl-12">
                     <div class="bradcam_text">
                         <h3>Doctors</h3>
-                        <p><a href="index.html">Home /</a> Doctors</p>
+                        <p><a href="{{ url('/') }}">Home /</a> Doctors</p>
                     </div>
                 </div>
             </div>

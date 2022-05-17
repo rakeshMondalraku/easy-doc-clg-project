@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PatientLoginController;
 use App\Http\Controllers\PatientProfileController;
+use App\Http\Controllers\PatientQueryController;
 
 Route::get('/', function () {
     return view('home');
@@ -25,6 +26,7 @@ Route::get('/doctors', function () {
 
 
 Route::prefix('patient')->name('patient.')->group(function () {
+    Route::post('/query', [PatientQueryController::class, 'query'])->name('query');
     Route::middleware('guest:patient')->group(function () {
         Route::get('/', function () {
             return redirect()->route('home');
