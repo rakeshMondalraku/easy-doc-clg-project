@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Patient;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,8 @@ class PatientProfileController extends Controller
     public function index()
     {
         $user = Auth::guard('patient')->user();
-        return view('profile', compact('user'));
+        $appointments = Appointment::where('patient_id', $user->id)->get();
+        return view('profile', compact('user', 'appointments'));
     }
     public function update(Request $request)
     {
@@ -37,7 +39,7 @@ class PatientProfileController extends Controller
         $patient->address = $request->address;
 
         if ($patient->save()) {
-			return response()->json(['message' => 'Profile has been updated!'], 200);
+            return response()->json(['message' => 'Profile has been updated!'], 200);
         } else {
             return response()->json(['message' => 'Something went wrong! Try again'], 400);
         }

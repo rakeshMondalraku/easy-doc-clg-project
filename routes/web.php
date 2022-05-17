@@ -43,6 +43,7 @@ Route::prefix('patient')->name('patient.')->group(function () {
         Route::post('/profile', [PatientProfileController::class, 'update'])->name('profile');
         Route::prefix('appointment')->name('appointment.')->group(function(){
             Route::get('/doctor-info/{id?}', [PatientAppointmentController::class, 'doctorInfo'])->name('doctor-info');
+            Route::post('/create', [PatientAppointmentController::class, 'create'])->name('create');
         });
     });
 });

@@ -101,11 +101,14 @@
         </div>
     </div>
     <!-- Emergency_contact end -->
-    <form id="appointment-form" class="white-popup-block mfp-hide">
+    <form id="appointment-form" class="white-popup-block mfp-hide" action="{{ route('patient.appointment.create') }}"
+        method="POST">
+        @csrf
         <div class="popup_box ">
             <div class="popup_inner">
                 <h3>Make an Appointment</h3>
                 <div class="row">
+                    <div id="appointment-error-message"></div>
                     <div class="col-md-12">
                         <h4 id="doctor-info" class="text-center"></h4>
                     </div>
@@ -114,6 +117,7 @@
                     </div>
                     <div class="col-md-12" id="timings">
                     </div>
+                    <input type="hidden" name="doctor" id="appointment-doctor-id">
                     <div class="col-md-12">
                         <button type="submit" class="boxed-btn3">Confirm</button>
                     </div>
@@ -125,6 +129,39 @@
 
 @push('script')
     <script>
+        $(document).ready(function() {
+            $('#appointment-form').ajaxForm({
+                resetForm: true,
+                beforeSubmit: function() {
+                    $('#appointment-error-message').html('');
+                    $('#appointment-form .popup_inner').LoadingOverlay('show');
+                },
+                success: function(response) {
+                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#add-new-modal').modal('hide');
+                    toastr.success(response.message);
+                    location.href = "{{ route('patient.profile') }}";
+                },
+                error: function(response) {
+                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    const errors = response.responseJSON;
+                    let errorsHtml = '<div class="alert alert-danger"><ul>';
+
+                    if (response.status == 422) {
+                        $.each(errors.errors, function(k, v) {
+                            errorsHtml += '<li>' + v + '</li>';
+                        });
+                    } else {
+                        errorsHtml += '<li>' + errors.message + '</li>';
+                    }
+
+                    errorsHtml += '</ul></di>';
+
+                    $('#appointment-error-message').html(errorsHtml);
+                },
+            });
+        });
+
         function openDialog(id) {
             $('#appointment-form .popup_inner').LoadingOverlay('show');
             $.ajax({
@@ -133,6 +170,7 @@
                 success: function(res) {
                     $('#appointment-form .popup_inner').LoadingOverlay('hide');
                     $('#doctor-info').html(`${res.name} - ${res.specialization.name} - ${res.qualification}`);
+                    $('#appointment-doctor-id').val(res.id);
                     let timings = '';
                     res.availabilities.forEach((availability, i) => {
                         timings += `
