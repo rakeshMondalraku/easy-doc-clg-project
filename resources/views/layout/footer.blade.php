@@ -11,7 +11,9 @@
                             </a>
                         </div>
                         <p>
-                            we provide best services
+                           <!-- Our Goal is to provide sevice with the easy accesibilty and necligible charges -->
+                           "Wherever the art of Medicine is loved, there is also a love of Humanity. ”<br>
+                           ― Hippocrates
                         </p>
                         <div class="socail_links">
                             <ul>

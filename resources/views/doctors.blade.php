@@ -24,8 +24,8 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-55">
                         <h3>Our Doctors</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
-                            It esteems luckily or picture placing drawing. </p>
+                        <p>Our Doctors are highly qualified and verified in their specialities <br>
+                            and they try to solve every consultant's problem within minimum time. </p>
                     </div>
                 </div>
             </div>

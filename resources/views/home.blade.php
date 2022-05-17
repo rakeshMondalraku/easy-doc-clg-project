@@ -61,8 +61,8 @@
                 <div class="col-xl-12">
                     <div class="section_title text-center mb-55">
                         <h3>Our Departments</h3>
-                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
-                            It esteems luckily or picture placing drawing. </p>
+                        <p>We Provide many departments in the field of medical <br>
+                            and our doctors are masters in their fields . </p>
                     </div>
                 </div>
             </div>
