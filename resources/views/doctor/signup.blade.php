@@ -85,7 +85,7 @@
                                                 <div class="form-group">
                                                     <label>Specialization</label>
                                                     <select name="specialization" class="form-control" required>
-                                                        <option value="" {{ !old('gender') ? 'selected' : '' }}
+                                                        <option value="" {{ !old('specialization') ? 'selected' : '' }}
                                                             disabled>Choose</option>
                                                         @foreach ($specializations as $specialization)
                                                             <option value="{{ $specialization->id }}"

@@ -1,108 +1,93 @@
 @extends('doctor.layout.app')
 
-@section('title', "Profile||Doctor's Panel")
+@section('title', 'Profile')
 
 @section('content')
-
-    <main role="main" class="main-content">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="page-title">Profile</h2>
-                    <form>
-                        <div class="row mt-5 align-items-center">
-                            <div class="col-md-3 text-center mb-5">
-                                <div class="avatar avatar-xl">
-                                    <img src="{{ asset('doctors-assets/img/my photo.jpg') }}" alt="..." class="avatar-img rounded-circle">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="row align-items-center">
-                                    <div class="col-md-7">
-                                        <h4 class="mb-1">Rakesh Mondal</h4>
-                                        <p class="small mb-3"><span class="badge badge-dark">Barrackpore,North 24 Parganas</span></p>
-                                    </div>
-                                </div>
-                                <div class="row mb-4">
-                                    <div class="col-md-7">
-                                        <p class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus. In hac habitasse platea dictumst. Cras urna quam, malesuada vitae risus at, pretium blandit sapien. </p>
-                                    </div>
-                                    <div class="col">
-                                        <p class="small mb-0 text-muted">Nec Urna Suscipit Ltd</p>
-                                        <p class="small mb-0 text-muted">P.O. Box 464, 5975 Eget Avenue</p>
-                                        <p class="small mb-0 text-muted">(537) 315-1481</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="my-4">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="firstname">Firstname</label>
-                                <input type="text" id="firstname" class="form-control" placeholder="Brown">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="lastname">Lastname</label>
-                                <input type="text" id="lastname" class="form-control" placeholder="Asher">
-                            </div>
-                        </div>
+    <div class="card mb-4">
+        <div class="card-body">
+            <form action="{{ route('doctor.profile') }}" method="POST">
+                @csrf
+                <x-error-alert></x-error-alert>
+                <x-success-alert></x-success-alert>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" value="{{ $user->name }}" required>
                         </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="inputAddress5">Address</label>
-                            <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue">
+                            <label>Age</label>
+                            <input type="text" class="form-control" name="age" value="{{ $user->age }}" required>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCompany5">Company</label>
-                                <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd">
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputState5">State</label>
-                                <select id="inputState5" class="form-control">
-                                    <option selected="">Choose...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputZip5">Zip</label>
-                                <input type="text" class="form-control" id="inputZip5" placeholder="98232">
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select name="gender" class="form-control" required>
+                                <option value="" {{ !$user->gender ? 'selected' : '' }} disabled>Choose</option>
+                                <option value="male" {{ $user->gender == 'male' ? 'selected' : '' }}>Male
+                                </option>
+                                <option value="female" {{ $user->gender == 'female' ? 'selected' : '' }}>Female
+                                </option>
+                            </select>
                         </div>
-                        <hr class="my-4">
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="inputPassword4">Old Password</label>
-                                    <input type="password" class="form-control" id="inputPassword5">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword5">New Password</label>
-                                    <input type="password" class="form-control" id="inputPassword5">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPassword6">Confirm Password</label>
-                                    <input type="password" class="form-control" id="inputPassword6">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <p class="mb-2">Password requirements</p>
-                                <p class="small text-muted mb-2"> To create a new password, you have to meet all of the following requirements: </p>
-                                <ul class="small text-muted pl-4 mb-0">
-                                    <li> Minimum 8 character </li>
-                                    <li>At least one special character</li>
-                                    <li>At least one number</li>
-                                    <li>Can’t be the same as a previous password </li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Qualification</label>
+                            <input type="text" class="form-control" name="qualification"
+                                value="{{ $user->qualification }}" placeholder="Ex: MBBS, BMBS" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save Change</button>
-                    </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Specialization</label>
+                            <select name="specialization" class="form-control" required>
+                                <option value="" {{ !$user->specialization_id ? 'selected' : '' }} disabled>Choose
+                                </option>
+                                @foreach ($specializations as $specialization)
+                                    <option value="{{ $specialization->id }}"
+                                        {{ $user->specialization_id == $specialization->id ? 'selected' : '' }}>
+                                        {{ $specialization->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Experience</label>
+                            <input type="text" class="form-control" name="experience" value="{{ $user->experience }}"
+                                placeholder="Ex: 5 years" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" value="{{ $user->email }}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mobile</label>
+                            <input type="text" class="form-control" name="mobile" value="{{ $user->mobile }}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Doctor Registration Number</label>
+                            <input type="text" class="form-control" name="registration_number"
+                                value="{{ $user->registration_number }}" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-user btn-block" type="submit">
+                            Update Profile
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <!-- / .card -->
-    </main> <!-- main -->
+    </div>
 @endsection
