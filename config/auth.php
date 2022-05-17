@@ -52,6 +52,10 @@ return [
             'driver' => 'session',
             'provider' => 'patients',
         ],
+        'query' => [
+            'driver' => 'session',
+            'provider' => 'queries',
+        ],
     ],
 
     /*
@@ -87,6 +91,10 @@ return [
         'patients' => [
             'driver' => 'eloquent',
             'model' => App\Models\Patient::class,
+        ],
+        'queries' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Query::class,
         ],
     ],
 
@@ -126,6 +134,12 @@ return [
         ],
         'patients' => [
             'provider' => 'patients',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'patients' => [
+            'provider' => 'queries',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
