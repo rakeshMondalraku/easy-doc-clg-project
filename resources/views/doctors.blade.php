@@ -2,6 +2,17 @@
 
 @section('title', 'Doctors')
 
+@push('style')
+    <style>
+        .radio-box {
+            height: 15px !important;
+            width: 21px !important;
+            margin-bottom: 10px !important;
+        }
+
+    </style>
+@endpush
+
 @section('content')
     <!-- bradcam_area_start  -->
     <div class="bradcam_area breadcam_bg_2 bradcam_overlay">
@@ -30,96 +41,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Rakesh Mondal</a></h3>
-                            <h4> child specialist(MBBS,MD,BDS) </h4>
-                            <h5>Days : MON , WED , FRI </h5>
-                            <h5>Time : 3pm - 8pm </h5>
-                            <h5>Fees : 400 Rs</h5>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Rakesh Mondal</a></h3>
-                            <h4 style="color: darkslategray;"> child specialist(MBBS,MD) </h4>
-                            <h5 style="color: darkslategray;">Days : MON , WED , FRI </h5>
-                            <h5 style="color: darkslategray;">Time : 3pm - 8pm </h5>
-                            <h5 style="color: darkslategray;">Fees : 400 Rs</h5>
-
+                @foreach ($doctors as $doctor)
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="single_department">
+                            <div class="department_thumb">
+                                <img src="{{ $doctor->picture ? asset($doctor->picture) : asset('img/doctor-avatar.png') }}"
+                                    alt="">
+                            </div>
+                            <div class="department_content">
+                                <h3>{{ $doctor->name }}</h3>
+                                <h4> {{ $doctor->specialization->name }} ({{ $doctor->qualification }}) </h4>
+                                <h5>Days : {{ implode(', ', $doctor->availabilities->pluck('weekday')->toArray()) }} </h5>
+                                @if (auth()->guard('patient')->user())
+                                    <button class="boxed-btn3 popup-with-form" href="#appointment-form"
+                                        onclick="openDialog({{ $doctor->id }})">Make An
+                                        Appointment</button>
+                                @else
+                                    <button class="boxed-btn3 popup-with-form" href="#login-form">Make An
+                                        Appointment</button>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Pritam Dhara(MBBS)</a></h3>
-                            <h4> Neurologist</h4>
-                            <h5>Days : MON , WED </h5>
-                            <h5>Time : 3pm - 8pm </h5>
-                            <h5>Fees : 400 Rs</h5>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Rakesh Mondal(MBBS,MD)</a></h3>
-                            <h4> child specialist </h4>
-                            <h5>Days : MON , WED , FRI </h5>
-                            <h5>Time : 3pm - 8pm </h5>
-                            <h5>Fees : 400 Rs</h5>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Rakesh Mondal(MBBS,MD)</a></h3>
-                            <h4> child specialist </h4>
-                            <h5>Days : MON , WED , FRI </h5>
-                            <h5>Time : 3pm - 8pm </h5>
-                            <h5>Fees : 400 Rs</h5>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6 col-lg-4">
-                    <div class="single_department">
-                        <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
-                        </div>
-                        <div class="department_content">
-                            <h3><a href="#">Rakesh Mondal(MBBS,MD)</a></h3>
-                            <h4> child specialist </h4>
-                            <h5>Days : MON , WED , FRI </h5>
-                            <h5>Time : 3pm - 8pm </h5>
-                            <h5>Fees : 400 Rs</h5>
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -149,7 +93,7 @@
                             <p>Click the button below</p>
                         </div>
                         <div class="info_button">
-                            <a href="{{ url('/doctors')}}" class="boxed-btn3-white">Make an Appointment</a>
+                            <a href="{{ url('/doctors') }}" class="boxed-btn3-white">Make an Appointment</a>
                         </div>
                     </div>
                 </div>
@@ -157,4 +101,55 @@
         </div>
     </div>
     <!-- Emergency_contact end -->
+    <form id="appointment-form" class="white-popup-block mfp-hide">
+        <div class="popup_box ">
+            <div class="popup_inner">
+                <h3>Make an Appointment</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 id="doctor-info" class="text-center"></h4>
+                    </div>
+                    <div class="col-md-12">
+                        <p>Choose timing</p>
+                    </div>
+                    <div class="col-md-12" id="timings">
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="boxed-btn3">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @endsection
+
+@push('script')
+    <script>
+        function openDialog(id) {
+            $('#appointment-form .popup_inner').LoadingOverlay('show');
+            $.ajax({
+                url: `{{ route('patient.appointment.doctor-info') }}/${id}`,
+                method: 'GET',
+                success: function(res) {
+                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#doctor-info').html(`${res.name} - ${res.specialization.name} - ${res.qualification}`);
+                    let timings = '';
+                    res.availabilities.forEach((availability, i) => {
+                        timings += `
+                        <div>
+                            <input class="radio-box" type="radio" name="availability" id="availability${availability.id}" value="${availability.id}" ${i == 0 ? 'checked' : ''}>
+                            <label for="availability${availability.id}">
+                                ${availability.weekday} (${moment(availability.start, 'HH:mm:ss').format('HH:mm A')}-${moment(availability.end, 'HH:mm:ss').format('HH:mm A')}) - ${availability.office.address}, ${availability.office.city}, ${availability.office.state}, ${availability.office.zip} (₹ ${availability.office.fee})
+                            </label>
+                        </div>
+                        `;
+                    })
+                    $('#timings').html(timings);
+                },
+                error: function() {
+                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                }
+            });
+        }
+    </script>
+@endpush

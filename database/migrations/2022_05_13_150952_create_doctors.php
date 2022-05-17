@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('gender');
             $table->string('qualification');
             $table->string('registration_number');
-            $table->string('specialization_id');
+            $table->integer('specialization_id');
             $table->string('experience');
             $table->string('mobile')->unique();
             $table->string('email')->unique();

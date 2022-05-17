@@ -47,10 +47,6 @@ class AdminSpecializationController extends Controller
         return response()->json(['message' => "Something went wrong! Try again"], 500);
     }
 
-    public function show(Specialization $specialization)
-    {
-    }
-
     public function edit(Specialization $specialization)
     {
         return $specialization;

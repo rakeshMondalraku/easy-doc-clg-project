@@ -12,10 +12,11 @@ class AdminDoctorController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return Datatables::of(Doctor::all())
+            return Datatables::of(Doctor::with('specialization'))
+                ->addColumn('specialization', '{{$specialization["name"]}}')
                 ->editColumn('mobile', '<a href="tel:{{$mobile}}">{{$mobile}}</a>')
                 ->editColumn('email', '<a href="mailto:{{$email}}">{{$email}}</a>')
-                ->rawColumns(['mobile', 'email'])
+                ->rawColumns(['specialization', 'mobile', 'email'])
                 ->make(true);
         }
 

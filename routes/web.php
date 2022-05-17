@@ -1,12 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
-#region Patients
-
-use App\Http\Controllers\PatientLoginController;
-use App\Http\Controllers\PatientProfileController;
-use App\Http\Controllers\PatientQueryController;
 
 Route::get('/', function () {
     return view('home');
@@ -20,10 +15,14 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/doctors', function () {
-    return view('doctors');
-});
+Route::get('/doctors', [HomeController::class, 'doctors'])->name('doctors');
 
+#region Patients
+
+use App\Http\Controllers\Patient\PatientLoginController;
+use App\Http\Controllers\Patient\PatientProfileController;
+use App\Http\Controllers\Patient\PatientQueryController;
+use App\Http\Controllers\Patient\PatientAppointmentController;
 
 Route::prefix('patient')->name('patient.')->group(function () {
     Route::post('/query', [PatientQueryController::class, 'query'])->name('query');
@@ -42,6 +41,9 @@ Route::prefix('patient')->name('patient.')->group(function () {
         Route::get('/logout', [PatientLoginController::class, 'logout'])->name('logout');
         Route::get('/profile', [PatientProfileController::class, 'index'])->name('profile');
         Route::post('/profile', [PatientProfileController::class, 'update'])->name('profile');
+        Route::prefix('appointment')->name('appointment.')->group(function(){
+            Route::get('/doctor-info/{id?}', [PatientAppointmentController::class, 'doctorInfo'])->name('doctor-info');
+        });
     });
 });
 
@@ -52,6 +54,8 @@ Route::prefix('patient')->name('patient.')->group(function () {
 use App\Http\Controllers\Doctor\DoctorAuthController;
 use App\Http\Controllers\Doctor\DoctorDashboardController;
 use App\Http\Controllers\Doctor\DoctorProfileController;
+use App\Http\Controllers\Doctor\DoctorOfficeController;
+use App\Http\Controllers\Doctor\DoctorAvailabilityController;
 
 Route::prefix('doctor')->name('doctor.')->group(function () {
     Route::middleware('guest:doctor')->group(function () {
@@ -73,6 +77,9 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
         Route::get('/change-password', [DoctorProfileController::class, 'showChangePassword'])->name('change-password');
         Route::post('/change-password', [DoctorProfileController::class, 'updatePassword'])->name('change-password');
         Route::get('/dashboard', [DoctorDashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('offices', DoctorOfficeController::class);
+        Route::resource('availabilities', DoctorAvailabilityController::class);
     });
 });
 

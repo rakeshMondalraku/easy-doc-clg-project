@@ -44,14 +44,18 @@ class DoctorProfileController extends Controller
 
         $doctor = Doctor::find($user->id);
         $doctor->name = $request->name;
-		$doctor->age = $request->age;
-		$doctor->gender = $request->gender;
-		$doctor->qualification = $request->qualification;
-		$doctor->specialization_id = $request->specialization;
-		$doctor->experience = $request->experience;
-		$doctor->email = $request->email;
-		$doctor->mobile = $request->mobile;
-		$doctor->registration_number = $request->registration_number;
+        $doctor->age = $request->age;
+        $doctor->gender = $request->gender;
+        $doctor->qualification = $request->qualification;
+        $doctor->specialization_id = $request->specialization;
+        $doctor->experience = $request->experience;
+        $doctor->email = $request->email;
+        $doctor->mobile = $request->mobile;
+        $doctor->registration_number = $request->registration_number;
+
+        if ($request->file('picture')) {
+            $doctor->picture = 'storage/doctors/' . explode('/', $request->file('picture')->store('public/doctors'))[2];
+        }
 
         if ($doctor->save()) {
             return redirect()->back()->withSuccess(['Profile has been updated!']);

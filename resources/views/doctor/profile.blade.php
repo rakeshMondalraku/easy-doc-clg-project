@@ -2,14 +2,38 @@
 
 @section('title', 'Profile')
 
+@push('style')
+    <style>
+        .uploader-icon {
+            position: absolute;
+            bottom: 0;
+            right: 48px;
+            background: #fff;
+            padding: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+    </style>
+@endpush
+
 @section('content')
     <div class="card mb-4">
         <div class="card-body">
-            <form action="{{ route('doctor.profile') }}" method="POST">
+            <form action="{{ route('doctor.profile') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <x-error-alert></x-error-alert>
                 <x-success-alert></x-success-alert>
                 <div class="row">
+                    <div class="col-md-12 row d-flex justify-content-center mb-5">
+                        <div class="col-md-2 d-flex justify-content-center" style="position: relative">
+                            <img class="rounded-circle picture"
+                                src="{{ $user->picture ? asset($user->picture) : asset('img/doctor-avatar.png') }}"
+                                style="height: 100px;width:100px">
+                            <input type="file" style="display: none" name="picture" accept="image/*" />
+                            <i class="fas fa-camera uploader-icon"></i>
+                        </div>
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Name</label>
@@ -91,3 +115,16 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        $(document).ready(function() {
+            $('.uploader-icon').click(function() {
+                $('[name="picture"]').click();
+            });
+            $('[name="picture"]').change(function(e) {
+                $('.picture').attr('src', window.URL.createObjectURL(e.target.files[0]));
+            })
+        });
+    </script>
+@endpush

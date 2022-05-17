@@ -25,6 +25,7 @@
 <script src="{{ asset('admin-assets/vendor/jquery-form/jquery.form.min.js') }}"></script>
 <script src="{{ asset('admin-assets/vendor/jquery-loading-overlay/loadingoverlay.min.js') }}"></script>
 <script src="{{ asset('admin-assets/vendor/toastr/toastr.min.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 
 <script src="{{ asset('js/main.js') }}"></script>
 <script>
@@ -34,59 +35,57 @@
         }
     });
     $('#login-form').ajaxForm({
-    resetForm: true,
-    beforeSubmit: function() {
-        $('#add-error-message').html('');
-        $('#login-modal').LoadingOverlay('show');
-    },
-    success: function(response) {
-        location.href="{{ route('patient.profile')}}";
-    },
-    error: function(response) {
-        $('#login-modal').LoadingOverlay('hide');
-        const errors = response.responseJSON;
-        let errorsHtml = '<div class="alert alert-danger"><ul>';
+        resetForm: true,
+        beforeSubmit: function() {
+            $('#add-error-message').html('');
+            $('#login-modal').LoadingOverlay('show');
+        },
+        success: function(response) {
+            location.href = "{{ route('patient.profile') }}";
+        },
+        error: function(response) {
+            $('#login-modal').LoadingOverlay('hide');
+            const errors = response.responseJSON;
+            let errorsHtml = '<div class="alert alert-danger"><ul>';
 
-        if (response.status == 422) {
-            $.each(errors.errors, function(k, v) {
-                errorsHtml += '<li>' + v + '</li>';
-            });
-        } else {
-            errorsHtml += '<li>' + errors.message + '</li>';
-        }
+            if (response.status == 422) {
+                $.each(errors.errors, function(k, v) {
+                    errorsHtml += '<li>' + v + '</li>';
+                });
+            } else {
+                errorsHtml += '<li>' + errors.message + '</li>';
+            }
 
-        errorsHtml += '</ul></di>';
+            errorsHtml += '</ul></di>';
 
-        $('#add-error-message').html(errorsHtml);
-    },
+            $('#add-error-message').html(errorsHtml);
+        },
     });
     $('#signin-form').ajaxForm({
-    resetForm: true,
-    beforeSubmit: function() {
-        $('#add-error-message').html('');
-        $('#signup-model').LoadingOverlay('show');
-    },
-    success: function(response) {
-        location.href="{{ route('patient.profile')}}";
-    },
-    error: function(response) {
-        $('#signup-model').LoadingOverlay('hide');
-        const errors = response.responseJSON;
-        let errorsHtml = '<div class="alert alert-danger"><ul>';
+        resetForm: true,
+        beforeSubmit: function() {
+            $('#add-error-message').html('');
+            $('#signup-model').LoadingOverlay('show');
+        },
+        success: function(response) {
+            location.href = "{{ route('patient.profile') }}";
+        },
+        error: function(response) {
+            $('#signup-model').LoadingOverlay('hide');
+            const errors = response.responseJSON;
+            let errorsHtml = '<div class="alert alert-danger"><ul>';
 
-        if (response.status == 422) {
-            $.each(errors.errors, function(k, v) {
-                errorsHtml += '<li>' + v + '</li>';
-            });
-        } else {
-            errorsHtml += '<li>' + errors.message + '</li>';
-        }
+            if (response.status == 422) {
+                $.each(errors.errors, function(k, v) {
+                    errorsHtml += '<li>' + v + '</li>';
+                });
+            } else {
+                errorsHtml += '<li>' + errors.message + '</li>';
+            }
 
-        errorsHtml += '</ul></di>';
+            errorsHtml += '</ul></di>';
 
-        $('#add-error-message').html(errorsHtml);
-    },
+            $('#add-error-message').html(errorsHtml);
+        },
     });
-
-
 </script>

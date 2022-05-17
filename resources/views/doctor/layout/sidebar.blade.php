@@ -17,6 +17,27 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Management
+    </div>
+
+    <li class="nav-item {{ request()->routeIs('doctor.offices*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('doctor.offices.index') }}">
+            <i class="fas fa-building"></i>
+            <span>Offices</span>
+        </a>
+    </li>
+    <li class="nav-item {{ request()->routeIs('doctor.availabilities*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('doctor.availabilities.index') }}">
+            <i class="fas fa-clock"></i>
+            <span>Availabilities</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

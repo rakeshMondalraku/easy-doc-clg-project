@@ -13,4 +13,14 @@ class Doctor extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function specialization()
+    {
+        return $this->belongsTo(Specialization::class);
+    }
+
+    public function availabilities()
+    {
+        return $this->hasMany(Availability::class);
+    }
 }
