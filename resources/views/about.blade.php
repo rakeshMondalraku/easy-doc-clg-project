@@ -120,7 +120,7 @@
                 <h3 class="mb-30">COMPASSION</h3>
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('img/elements/compassion.jpeg') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
                         <p>We have a deeper level of patient understanding and are always empathetic to their needs.
@@ -138,7 +138,7 @@
                              We understand that being the best is a continuous journey of becoming better versions of ourselves every day.</p>
                     </div>
                     <div class="col-md-3">
-                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('img/elements/excellence.jpeg') }}" alt="" class="img-fluid">
                     </div>
 
                 </div>
@@ -147,7 +147,7 @@
                 <h3 class="mb-30">EFFICIENCY</h3>
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('img/elements/efficiency.jpeg') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
                         <p>We create a responsive healing environment, by being nimble to the needs of our patients and delivering what they really need with precision and timing.
@@ -162,7 +162,7 @@
                         <p>We always deliver on our commitment and ensure the highest level of patient care is met at every stage, every time.
                              We believe that only through consistency can we achieve our patients’ trust and fulfil our goals</p>.</div>
                     <div class="col-md-3">
-                        <img src="img/elements/d.jpg" alt="" class="img-fluid">
+                        <img src="{{ asset('img/elements/consistency.jpeg') }}" alt="" class="img-fluid">
                     </div>
 
                 </div>
