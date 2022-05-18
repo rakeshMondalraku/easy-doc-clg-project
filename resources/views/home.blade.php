@@ -74,7 +74,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Eye Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>Your eyes, your best tool, take care of them</p>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Physical Therapy</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>It’s not just what pain is. It’s what it means to that person.</p>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Dental Care</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>We do have a zeal for laughter in most situation, give or take a dentist</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Diagnostic Test</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>Do all test each test matters for your life . One test can change the therapy </p>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Skin Surgery</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>Take Care of your skin and make them healthy as it protects you from outside.</p>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="department_content">
                             <h3><a href="#">Surgery Service</a></h3>
-                            <p>Esteem spirit temper too say adieus who direct esteem.</p>
+                            <p>Check and do the surgery before it's too late , it's your life afterall and we care for you</p>
                         </div>
                     </div>
                 </div>
