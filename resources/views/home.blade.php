@@ -70,10 +70,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/1.png" alt="">
+                            <img src="{{ asset('img/department/1.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Eye Care</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Eye Care</a></h3>
                             <p>Your eyes, your best tool, take care of them</p>
                         </div>
                     </div>
@@ -81,10 +81,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/2.png" alt="">
+                            <img src="{{ asset('img/department/2.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Physical Therapy</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Physical Therapy</a></h3>
                             <p>It’s not just what pain is. It’s what it means to that person.</p>
                         </div>
                     </div>
@@ -92,10 +92,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/3.png" alt="">
+                            <img src="{{ asset('img/department/3.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Dental Care</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Dental Care</a></h3>
                             <p>We do have a zeal for laughter in most situation, give or take a dentist</p>
                         </div>
                     </div>
@@ -103,10 +103,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/4.png" alt="">
+                            <img src="{{ asset('img/department/4.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Diagnostic Test</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Diagnostic Test</a></h3>
                             <p>Do all test each test matters for your life . One test can change the therapy </p>
                         </div>
                     </div>
@@ -114,10 +114,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/5.png" alt="">
+                            <img src="{{ asset('img/department/5.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Skin Surgery</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Skin Surgery</a></h3>
                             <p>Take Care of your skin and make them healthy as it protects you from outside.</p>
                         </div>
                     </div>
@@ -125,10 +125,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_department">
                         <div class="department_thumb">
-                            <img src="img/department/6.png" alt="">
+                            <img src="{{ asset('img/department/6.png') }}" alt="">
                         </div>
                         <div class="department_content">
-                            <h3><a href="#">Surgery Service</a></h3>
+                            <h3><a href="{{ url('/doctors') }}">Surgery Service</a></h3>
                             <p>Check and do the surgery before it's too late , it's your life afterall and we care for you</p>
                         </div>
                     </div>
