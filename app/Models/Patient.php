@@ -14,4 +14,17 @@ class Patient extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function patients()
+    {
+        return $this->hasMany(Patients::class);
+    }
+
+    public function doctors()
+    {
+        return $this->hasMany(Doctors::class);
+    }
+    public function availabilities()
+    {
+        return $this->hasMany(Availabilities::class);
+    }
 }

@@ -44,16 +44,16 @@
                 @foreach ($doctors as $doctor)
                     <div class="col-xl-4 col-md-6 col-lg-4">
                         <div class="single_department">
-                            <div class="department_thumb">
+                            <div class="department_thumb" style="height: 250px; width:100%">
                                 <img src="{{ $doctor->picture ? asset($doctor->picture) : asset('img/doctor-avatar.png') }}"
-                                    alt="">
+                                    alt="" style="overflow:hidden;">
                             </div>
                             <div class="department_content">
                                 <h3>{{ $doctor->name }}</h3>
                                 <h4> {{ $doctor->specialization->name }} ({{ $doctor->qualification }}) </h4>
                                 <h5>Days : {{ implode(', ', $doctor->availabilities->pluck('weekday')->toArray()) }} </h5>
                                 @if (auth()->guard('patient')->user())
-                                    <button class="boxed-btn3 popup-with-form" href="#appointment-form"
+                                    <button class="boxed-btn3 popup-with-form" href="#test-form"
                                         onclick="openDialog({{ $doctor->id }})">Make An
                                         Appointment</button>
                                 @else
@@ -101,7 +101,7 @@
         </div>
     </div>
     <!-- Emergency_contact end -->
-    <form id="appointment-form" class="white-popup-block mfp-hide" action="{{ route('patient.appointment.create') }}"
+    <form id="test-form" class="white-popup-block mfp-hide" action="{{ route('patient.appointment.create') }}"
         method="POST">
         @csrf
         <div class="popup_box ">
@@ -118,6 +118,11 @@
                     <div class="col-md-12" id="timings">
                     </div>
                     <input type="hidden" name="doctor" id="appointment-doctor-id">
+                    <div class="form-group col-md-12">
+                            <label style="font-weight:bold;">Patient's Problem</label>
+                            <input type="text" class="form-control" name="problem"
+                                value="" placeholder="">
+                        </div>
                     <div class="col-md-12">
                         <button type="submit" class="boxed-btn3">Confirm</button>
                     </div>
@@ -130,20 +135,20 @@
 @push('script')
     <script>
         $(document).ready(function() {
-            $('#appointment-form').ajaxForm({
+            $('#test-form').ajaxForm({
                 resetForm: true,
                 beforeSubmit: function() {
                     $('#appointment-error-message').html('');
-                    $('#appointment-form .popup_inner').LoadingOverlay('show');
+                    $('#test-form .popup_inner').LoadingOverlay('show');
                 },
                 success: function(response) {
-                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#test-form .popup_inner').LoadingOverlay('hide');
                     $('#add-new-modal').modal('hide');
                     toastr.success(response.message);
                     location.href = "{{ route('patient.profile') }}";
                 },
                 error: function(response) {
-                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#test-form .popup_inner').LoadingOverlay('hide');
                     const errors = response.responseJSON;
                     let errorsHtml = '<div class="alert alert-danger"><ul>';
 
@@ -163,12 +168,12 @@
         });
 
         function openDialog(id) {
-            $('#appointment-form .popup_inner').LoadingOverlay('show');
+            $('#test-form .popup_inner').LoadingOverlay('show');
             $.ajax({
                 url: `{{ route('patient.appointment.doctor-info') }}/${id}`,
                 method: 'GET',
                 success: function(res) {
-                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#test-form .popup_inner').LoadingOverlay('hide');
                     $('#doctor-info').html(`${res.name} - ${res.specialization.name} - ${res.qualification}`);
                     $('#appointment-doctor-id').val(res.id);
                     let timings = '';
@@ -185,7 +190,7 @@
                     $('#timings').html(timings);
                 },
                 error: function() {
-                    $('#appointment-form .popup_inner').LoadingOverlay('hide');
+                    $('#test-form .popup_inner').LoadingOverlay('hide');
                 }
             });
         }

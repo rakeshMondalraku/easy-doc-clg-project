@@ -44,4 +44,16 @@ class PatientProfileController extends Controller
             return response()->json(['message' => 'Something went wrong! Try again'], 400);
         }
     }
+    public function appointments()
+    {
+        $appointments = Appointment::with(['patients','doctors', 'availabilities', 'availabilities.office'])->get();
+        
+        return view('appointments', compact('appointments'));
+    }
+    public function appointmentInfo(Request $request, $id)
+	{
+        $appointment = Appointment::where('id', $id)->with(['patients','doctors', 'availabilities', 'availabilities.office'])->first();
+
+		return $appointment;
+	}
 }

@@ -28,6 +28,7 @@ class PatientAppointmentController extends Controller
 		$appointment->patient_id = Auth::guard('patient')->user()->id;
 		$appointment->doctor_id = $request->doctor;
 		$appointment->availability_id = $request->availability;
+		$appointment->problem = $request->problem;
 		$appointment->status = 'pending';
 
 		if ($appointment->save()) {

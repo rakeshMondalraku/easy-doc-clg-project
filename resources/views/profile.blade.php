@@ -88,53 +88,33 @@
                                 <div class="card-body">
                                     <div class="row">
                                         @foreach ($appointments as $appointment)
-                                            <div class="col-md-12">
-                                                
+                                            <div class="col-md-12"> 
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Patient's Issue</strong>
-                                                    </div>
-                                                    <div class="col-auto text-right">
-                                                        <strong>Eye Problem</strong>
+                                                        <strong>Patient's Problem : {{ $appointment->problem }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Doctor's Name</strong>
-                                                    </div>
-                                                    <div class="col-auto text-right">
-                                                        <strong>Pritam Dhara</strong>
+                                                        <strong>Doctor's Name : {{ $appointment->doctors->name }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Clinic Location</strong>
-                                                    </div>
-                                                    <div class="col-auto text-right">
-                                                        <strong>Barrackpore</strong>
+                                                        <strong>Clinic Location : {{ $appointment->availabilities->offices->address }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Appointment Date</strong>
-                                                    </div>
-                                                    <div class="col-auto text-right">
-                                                        <strong>12/05/2022</strong>
+                                                        <strong>Appointment Time : {{ $appointment->availabilities->weekday }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Appointment Time</strong>
-                                                    </div>
-                                                    <div class="col-auto text-right">
-                                                        <strong>11:45 AM</strong>
+                                                        <strong>Appointment Status : {{ $appointment->status }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
-                                                    <div class="col">
-                                                        <button type="button" class="btn mb-2 btn-warning disabled"
-                                                            data-dismiss="modal">Pending</button>
-                                                    </div>
                                                     <div class="col-auto">
                                                         <button type="button" class="btn mb-2 btn-danger"
                                                             data-dismiss="modal">Cancel</button>
