@@ -58,6 +58,7 @@ use App\Http\Controllers\Doctor\DoctorDashboardController;
 use App\Http\Controllers\Doctor\DoctorProfileController;
 use App\Http\Controllers\Doctor\DoctorOfficeController;
 use App\Http\Controllers\Doctor\DoctorAvailabilityController;
+use App\Http\Controllers\Doctor\DoctorAppointmentController;
 
 Route::prefix('doctor')->name('doctor.')->group(function () {
     Route::middleware('guest:doctor')->group(function () {
@@ -82,6 +83,15 @@ Route::prefix('doctor')->name('doctor.')->group(function () {
 
         Route::resource('offices', DoctorOfficeController::class);
         Route::resource('availabilities', DoctorAvailabilityController::class);
+
+        Route::controller(DoctorAppointmentController::class)->prefix('appointments')->name('appointments.')->group(function () {
+            Route::get('/pending', 'pending')->name('pending');
+            Route::get('/approved', 'approved')->name('approved');
+            Route::get('/completed', 'completed')->name('completed');
+            Route::get('/canceled', 'canceled')->name('canceled');
+            Route::get('/detail/{id?}', 'detail')->name('detail');
+            Route::post('/change-status', 'changeStatus')->name('changeStatus');
+        });
     });
 });
 
@@ -129,6 +139,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/completed', 'completed')->name('completed');
             Route::get('/canceled', 'canceled')->name('canceled');
             Route::get('/detail/{id?}', 'detail')->name('detail');
+            Route::post('/change-status', 'changeStatus')->name('changeStatus');
         });
     });
 });

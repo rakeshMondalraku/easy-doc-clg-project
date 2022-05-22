@@ -21,6 +21,42 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
+        Appointments
+    </div>
+
+    <li class="nav-item {{ request()->routeIs('doctor.appointments.pending') ? 'active' : '' }}">
+        <a class=" nav-link" href="{{ route('doctor.appointments.pending') }}">
+            <i class="fas fa-spinner"></i>
+            <span>Pending Appointments</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ request()->routeIs('doctor.appointments.approved') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('doctor.appointments.approved') }}">
+            <i class="fas fa-fw fa-calendar-check"></i>
+            <span>Approved Appointments</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ request()->routeIs('doctor.appointments.completed') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('doctor.appointments.completed') }}">
+            <i class="fas fa-calendar-check"></i>
+            <span>Completed Appointments</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ request()->routeIs('doctor.appointments.canceled') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('doctor.appointments.canceled') }}">
+            <i class="fas fa-fw fa-calendar-times"></i>
+            <span>Canceled Appointments</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
         Management
     </div>
 

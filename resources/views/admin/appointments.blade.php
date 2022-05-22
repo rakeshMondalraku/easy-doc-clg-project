@@ -47,8 +47,9 @@
     <script src="{{ asset('admin-assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin-assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script>
+        let table = null;
         $(document).ready(function() {
-            $('#dataTable').DataTable({
+            table = $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "/admin/appointments/{{ strtolower($status) }}",
@@ -120,6 +121,25 @@
                     })
                     $('#view-modal .modal-body').html(html);
                     $('#view-modal').modal('show');
+                },
+                error: function() {
+                    $.LoadingOverlay('hide');
+                }
+            });
+        }
+
+        function changeStatus(id, status) {
+            $.ajax({
+                url: `{{ route('admin.appointments.changeStatus') }}`,
+                method: 'POST',
+                data: {
+                    id,
+                    status
+                },
+                success: function(res) {
+                    $.LoadingOverlay('hide');
+                    table.ajax.reload();
+                    toastr.success(res.message);
                 },
                 error: function() {
                     $.LoadingOverlay('hide');

@@ -1,215 +1,150 @@
 @extends('doctor.layout.app')
 
-@section('title', "Manage Pending Appointments||Doctor's Panel")
+@section('title')
+    {{ $status }} Appointments
+@endsection
+
+@push('style')
+    <link href="{{ asset('admin-assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+@endpush
 
 @section('content')
-
-    <main role="main" class="main-content">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="page-title">Appointments</h2>
-                    <!-- Appointments section start  -->
-                    <div class="row" style="display:flex; align-items:center; justify-content:space-between;">
-                        <div class="card shadow mb-4" style="width: 32%;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Name</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Rakesh Mondal</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Sex</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Male</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Age</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>22 years</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Issue</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Eye Problem</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Date</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>12/05/2022</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Time</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>11:45 AM</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <button type="button" class="btn mb-2 btn-danger" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Approve</button>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .col-md-12 -->
-                                </div> <!-- .row -->
-                            </div> <!-- .card-body -->
-                        </div>
-                        <div class="card shadow mb-4" style="width: 32%;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Name</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Rakesh Mondal</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Sex</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Male</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Age</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>22 years</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Issue</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Eye Problem</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Date</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>12/05/2022</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Time</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>11:45 AM</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <button type="button" class="btn mb-2 btn-danger" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Approve</button>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .col-md-12 -->
-                                </div> <!-- .row -->
-                            </div> <!-- .card-body -->
-                        </div>
-                        <div class="card shadow mb-4" style="width: 32%;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Name</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Rakesh Mondal</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Sex</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Male</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Age</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>22 years</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Patient's Issue</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>Eye Problem</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Date</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>12/05/2022</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <strong>Appointment Time</strong>
-                                            </div>
-                                            <div class="col-auto">
-                                                <strong>11:45 AM</strong>
-                                            </div>
-                                        </div>
-                                        <div class="row align-items-center my-3">
-                                            <div class="col">
-                                                <button type="button" class="btn mb-2 btn-danger" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="button" class="btn mb-2 btn-success" data-dismiss="modal">Approve</button>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .col-md-12 -->
-                                </div> <!-- .row -->
-                            </div> <!-- .card-body -->
-                        </div>
-                    </div>
-
-                    <!-- Appointments section end  -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Doctor</th>
+                            <th>Patient</th>
+                            <th>Weekday</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="view-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">View Appointment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                 </div>
             </div>
         </div>
-        <!-- / .card -->
-    </main> <!-- main -->
-</div> <!-- .wrapper -->
+    </div>
 @endsection
+
+@push('script')
+    <script src="{{ asset('admin-assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin-assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script>
+        let table = null;
+        $(document).ready(function() {
+            table = $('#dataTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "/doctor/appointments/{{ strtolower($status) }}",
+                columns: [{
+                        data: 'doctor',
+                        name: 'doctor'
+                    },
+                    {
+                        data: 'patient',
+                        name: 'patient'
+                    },
+                    {
+                        data: 'weekday',
+                        name: 'weekday'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false
+                    },
+                ],
+            });
+        });
+
+        function view(id) {
+            $.LoadingOverlay('show');
+            $.ajax({
+                url: `{{ route('doctor.appointments.detail') }}/${id}`,
+                method: 'GET',
+                success: function(res) {
+                    $.LoadingOverlay('hide');
+                    const office = res.availability.office;
+                    const rows = [{
+                            label: 'Doctor',
+                            value: res.doctor.name
+                        },
+                        {
+                            label: 'Patient',
+                            value: res.patient.name
+                        },
+                        {
+                            label: 'Problem',
+                            value: res.problem
+                        },
+                        {
+                            label: 'Day',
+                            value: res.availability.weekday
+                        },
+                        {
+                            label: 'Time',
+                            value: `${moment(res.availability.start, 'HH:mm:ss').format('HH:mm A')} - ${moment(res.availability.end, 'HH:mm:ss').format('HH:mm A')}`
+                        },
+                        {
+                            label: 'Address',
+                            value: `${office.address} - ${office.city} - ${office.state} - ${office.zip}`
+                        }
+                    ];
+                    let html = '';
+                    rows.forEach(row => {
+                        html += `<div class="row">
+                                    <div class="col-md-3"><strong>${row.label}</strong></div>
+                                    <div class="col-md-1"><strong>:</strong></div>
+                                    <div class="col-md-8">${row.value}</div>
+                                </div>`;
+                    })
+                    $('#view-modal .modal-body').html(html);
+                    $('#view-modal').modal('show');
+                },
+                error: function() {
+                    $.LoadingOverlay('hide');
+                }
+            });
+        }
+
+        function changeStatus(id, status) {
+            $.ajax({
+                url: `{{ route('doctor.appointments.changeStatus') }}`,
+                method: 'POST',
+                data: {
+                    id,
+                    status
+                },
+                success: function(res) {
+                    $.LoadingOverlay('hide');
+                    table.ajax.reload();
+                    toastr.success(res.message);
+                },
+                error: function() {
+                    $.LoadingOverlay('hide');
+                }
+            });
+        }
+    </script>
+@endpush

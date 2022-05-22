@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
-class AdminAppointmentController extends Controller
+class DoctorAppointmentController extends Controller
 {
     public function pending(Request $request)
     {
@@ -16,7 +17,7 @@ class AdminAppointmentController extends Controller
         }
         $status = "Pending";
 
-        return view('admin.appointments', compact('status'));
+        return view('doctor.appointments', compact('status'));
     }
 
     public function approved(Request $request)
@@ -26,7 +27,7 @@ class AdminAppointmentController extends Controller
         }
         $status = "Approved";
 
-        return view('admin.appointments', compact('status'));
+        return view('doctor.appointments', compact('status'));
     }
 
     public function completed(Request $request)
@@ -36,7 +37,7 @@ class AdminAppointmentController extends Controller
         }
         $status = "Completed";
 
-        return view('admin.appointments', compact('status'));
+        return view('doctor.appointments', compact('status'));
     }
 
     public function canceled(Request $request)
@@ -46,12 +47,13 @@ class AdminAppointmentController extends Controller
         }
         $status = "Canceled";
 
-        return view('admin.appointments', compact('status'));
+        return view('doctor.appointments', compact('status'));
     }
 
     public function datatable($status)
     {
-        return DataTables::of(Appointment::where('status', $status)->with(['doctor', 'patient', 'availability']))
+        $id = Auth::guard('doctor')->user()->id;
+        return DataTables::of(Appointment::where('doctor_id', $id)->where('status', $status)->with(['doctor', 'patient', 'availability']))
             ->addColumn('doctor', '{{$doctor["name"]}}')
             ->addColumn('patient', '{{$patient["name"]}}')
             ->addColumn('weekday', '{{$availability["weekday"]}}')
