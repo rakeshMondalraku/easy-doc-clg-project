@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', 'Manage Patients')
+@section('title', 'Queries')
 
 @push('style')
     <link href="{{ asset('admin-assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -14,10 +14,9 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Mobile</th>
                             <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -35,32 +34,23 @@
             $('#dataTable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.patients') }}",
+                ajax: "{{ route('admin.queries.index') }}",
                 columns: [{
                         data: 'name',
                         name: 'name'
                     },
                     {
-                        data: 'age',
-                        name: 'age'
-                    },
-                    {
-                        data: 'gender',
-                        name: 'gender'
-                    },
-                    {
-                        data: 'mobile',
-                        name: 'mobile'
-                    },
-                    {
                         data: 'email',
                         name: 'email'
                     },
-                    // {
-                    //     data: 'action',
-                    //     name: 'action',
-                    //     orderable: false
-                    // },
+                    {
+                        data: 'subject',
+                        name: 'subject'
+                    },
+                    {
+                        data: 'message',
+                        name: 'message'
+                    },
                 ],
             });
         });

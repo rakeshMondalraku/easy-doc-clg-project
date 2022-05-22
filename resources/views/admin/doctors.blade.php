@@ -13,7 +13,6 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Qualification</th>
                             <th>Specialization</th>
@@ -39,10 +38,6 @@
                 serverSide: true,
                 ajax: "{{ route('admin.doctors') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
-                    },
-                    {
                         data: 'name',
                         name: 'name'
                     },

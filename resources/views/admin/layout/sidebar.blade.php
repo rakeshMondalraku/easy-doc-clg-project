@@ -24,17 +24,31 @@
         Appointments
     </div>
 
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item {{ request()->routeIs('admin.appointments.pending') ? 'active' : '' }}">
+        <a class=" nav-link" href="{{ route('admin.appointments.pending') }}">
             <i class="fas fa-spinner"></i>
             <span>Pending Appointments</span>
         </a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item {{ request()->routeIs('admin.appointments.approved') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.appointments.approved') }}">
             <i class="fas fa-fw fa-calendar-check"></i>
             <span>Approved Appointments</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ request()->routeIs('admin.appointments.completed') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.appointments.completed') }}">
+            <i class="fas fa-calendar-check"></i>
+            <span>Completed Appointments</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ request()->routeIs('admin.appointments.canceled') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.appointments.canceled') }}">
+            <i class="fas fa-fw fa-calendar-times"></i>
+            <span>Canceled Appointments</span>
         </a>
     </li>
 
@@ -80,6 +94,16 @@
         <a class="nav-link" href="{{ route('admin.specializations.index') }}">
             <i class="fas fa-user-tag"></i>
             <span>Specializations</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item {{ request()->routeIs('admin.queries*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.queries.index') }}">
+            <i class="fas fa-question"></i>
+            <span>Queries</span>
         </a>
     </li>
 

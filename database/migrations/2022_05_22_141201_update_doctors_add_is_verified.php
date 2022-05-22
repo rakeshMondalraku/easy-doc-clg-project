@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('appointments', function (Blueprint $table) {
-            $table->string('problem')->after('availability_id')->nullable();
+        Schema::table('doctors', function (Blueprint $table) {
+            $table->boolean('is_verified')->after('picture')->default(false);
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('appointments', function (Blueprint $table) {
-            $table->dropColumn('problem');
+        Schema::table('doctors', function (Blueprint $table) {
+            $table->dropColumn('is_verified');
         });
     }
 };

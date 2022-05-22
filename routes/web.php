@@ -95,6 +95,8 @@ use App\Http\Controllers\Admin\AdminDoctorController;
 use App\Http\Controllers\Admin\AdminPatientController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSpecializationController;
+use App\Http\Controllers\Admin\AdminAppointmentController;
+use App\Http\Controllers\Admin\AdminQueryController;
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest:admin')->group(function () {
@@ -119,6 +121,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
 
         Route::resource('specializations', AdminSpecializationController::class);
+        Route::resource('queries', AdminQueryController::class);
+
+        Route::controller(AdminAppointmentController::class)->prefix('appointments')->name('appointments.')->group(function () {
+            Route::get('/pending', 'pending')->name('pending');
+            Route::get('/approved', 'approved')->name('approved');
+            Route::get('/completed', 'completed')->name('completed');
+            Route::get('/canceled', 'canceled')->name('canceled');
+            Route::get('/detail/{id?}', 'detail')->name('detail');
+        });
     });
 });
 

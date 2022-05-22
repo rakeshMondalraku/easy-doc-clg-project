@@ -10,6 +10,7 @@
 <script src="{{ asset('admin-assets/vendor/jquery-loading-overlay/loadingoverlay.min.js') }}"></script>
 <script src="{{ asset('admin-assets/vendor/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('admin-assets/vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
 
 <script>
     $.ajaxSetup({
