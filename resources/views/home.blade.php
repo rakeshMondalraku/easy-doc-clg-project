@@ -245,7 +245,7 @@
                             <p>Please call this number</p>
                         </div>
                         <div class="info_button">
-                            <a href="#" class="boxed-btn3-white"> +91 9382139976</a>
+                            <a href="tel:9382113570" class="boxed-btn3-white"> +91 9382113570</a>
                         </div>
                     </div>
                 </div>

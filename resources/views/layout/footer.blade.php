@@ -18,17 +18,17 @@
                         <div class="socail_links">
                             <ul>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://www.facebook.com/EasyDoc-112295578153820/">
                                         <i class="ti-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="ti-twitter-alt"></i>
+                                    <a href="https://whatsapp.com">
+                                        <i class="fa fa-whatsapp"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="https://instagram.com/easydoc_online?igshid=YmMyMTA2M2Y=">
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </li>
@@ -37,6 +37,9 @@
 
                     </div>
                 </div>
+                <!-- <div class="col-xl-2 col-md-6 col-lg-2">
+
+                </div> -->
                 <div class="col-xl-2 col-md-6 col-lg-2">
                     <div class="footer_widget">
                         <h3 class="footer_title">
@@ -49,6 +52,9 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-xl-2 col-md-6 col-lg-2">
+                    
+                </div>
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
@@ -56,8 +62,9 @@
                         </h3>
                         <p>
                             Bara Kanthalia, Barackpore, North 24 Parganas <br>
-                            +91 9382139976 <br>
-                            easydoc@contact.com
+                            <a href="tel:9382113570" style="color:#F5F5F5; opacity:0.8;">+91 9382113570</a> <br>
+                            <a href="mailto:easydoc@contact.com" style="color:#F5F5F5; opacity:0.8;">easydoc@contact.com</a><br><br> 
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.1903643462197!2d88.39480451479562!3d22.758315585087555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89a23aaaaaaab%3A0xc4abd2775aa52dc2!2sRegent%20Education%20and%20Research%20Foundation!5e0!3m2!1sen!2sin!4v1653240364818!5m2!1sen!2sin" width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </p>
                     </div>
                 </div>

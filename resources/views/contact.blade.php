@@ -67,20 +67,20 @@
                         <span class="contact-info__icon"><i class="ti-home"></i></span>
                         <div class="media-body">
                             <h3>Bara Kanthalia, Barrackpore, North 24 Parganas, 700121</h3>
-                            <p></p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.1903643462197!2d88.39480451479562!3d22.758315585087555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89a23aaaaaaab%3A0xc4abd2775aa52dc2!2sRegent%20Education%20and%20Research%20Foundation!5e0!3m2!1sen!2sin!4v1653240364818!5m2!1sen!2sin" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
-                            <h3> +91 9382139976</h3>
+                            <a href="tel:9382113570">+91 9382113570</a>
                             <p>24*7 hours service</p>
                         </div>
                     </div>
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3> easydoc@contact.com</h3>
+                            <a href="mailto:easydoc@contact.com">easydoc@contact.com</a>
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>
