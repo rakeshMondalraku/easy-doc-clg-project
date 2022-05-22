@@ -84,6 +84,11 @@
                         <!-- Appointments section start  -->
                         <div class="row"
                             style="display:flex; align-items:center; justify-content:space-between;">
+                            @if (count($appointments) == 0)
+                                <div class="col-md-12">
+                                    <h4 class="text-center">You haven't booked any appointment</h4>
+                                </div>
+                            @endif
                             @foreach ($appointments as $appointment)
                                 <div class="card shadow mb-4" style="width: 32%;">
                                     <div class="card-body">
