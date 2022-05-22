@@ -41,9 +41,10 @@ Route::prefix('patient')->name('patient.')->group(function () {
         Route::get('/logout', [PatientLoginController::class, 'logout'])->name('logout');
         Route::get('/profile', [PatientProfileController::class, 'index'])->name('profile');
         Route::post('/profile', [PatientProfileController::class, 'update'])->name('profile');
-        Route::prefix('appointment')->name('appointment.')->group(function(){
+        Route::prefix('appointment')->name('appointment.')->group(function () {
             Route::get('/doctor-info/{id?}', [PatientAppointmentController::class, 'doctorInfo'])->name('doctor-info');
             Route::post('/create', [PatientAppointmentController::class, 'create'])->name('create');
+            Route::post('/cancel', [PatientAppointmentController::class, 'cancel'])->name('cancel');
         });
     });
 });

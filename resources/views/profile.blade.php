@@ -25,13 +25,13 @@
                     <div class="col-xl-12">
                         <ul class="nav" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">Details</a>
+                                <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Profile</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">My Appointments</a>
+                                <a class="nav-link" data-toggle="tab" href="#appointments" id="appointments-tab"
+                                    role="tab">My
+                                    Appointments</a>
                             </li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@
         <div class="container">
             <div class="border_bottom">
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel">
                         <div class="card text-center">
                             <div class="card-header">
                                 {{ $user->name }}
@@ -80,15 +80,15 @@
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="appointments" role="tabpanel">
                         <!-- Appointments section start  -->
                         <div class="row"
                             style="display:flex; align-items:center; justify-content:space-between;">
-                            <div class="card shadow mb-4" style="width: 32%;">
-                                <div class="card-body">
-                                    <div class="row">
-                                        @foreach ($appointments as $appointment)
-                                            <div class="col-md-12"> 
+                            @foreach ($appointments as $appointment)
+                                <div class="card shadow mb-4" style="width: 32%;">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
                                                         <strong>Patient's Problem : {{ $appointment->problem }}</strong>
@@ -96,17 +96,23 @@
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Doctor's Name : {{ $appointment->doctors->name }}</strong>
+                                                        <strong>Doctor's Name : {{ $appointment->doctor->name }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Clinic Location : {{ $appointment->availabilities->offices->address }}</strong>
+                                                        <strong>Clinic Location :
+                                                            {{ $appointment->availability->office->address }}
+                                                        </strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col">
-                                                        <strong>Appointment Time : {{ $appointment->availabilities->weekday }}</strong>
+                                                        <strong>Appointment Time :
+                                                            {{ $appointment->availability->weekday }}
+                                                            {{ \Carbon\Carbon::parse($appointment->availability->start)->format('H:i A') }}
+                                                            -
+                                                            {{ \Carbon\Carbon::parse($appointment->availability->end)->format('H:i A') }}</strong>
                                                     </div>
                                                 </div>
                                                 <div class="row align-items-center my-3">
@@ -116,15 +122,24 @@
                                                 </div>
                                                 <div class="row align-items-center my-3">
                                                     <div class="col-auto">
-                                                        <button type="button" class="btn mb-2 btn-danger"
-                                                            data-dismiss="modal">Cancel</button>
+                                                        @if ($appointment->status == 'pending' || $appointment->status == 'approved')
+                                                            <form action="{{ route('patient.appointment.cancel') }}"
+                                                                method="POST"
+                                                                onSubmit="return confirm('Are you sure you want to cancel the appointment?') ">
+                                                                @csrf
+                                                                <input type="hidden" value="{{ $appointment->id }}"
+                                                                    name="appointment" />
+                                                                <button type="submit" class="btn mb-2 btn-danger"
+                                                                    data-dismiss="modal">Cancel</button>
+                                                            </form>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    </div> <!-- .row -->
-                                </div> <!-- .card-body -->
-                            </div>
+                                        </div> <!-- .row -->
+                                    </div> <!-- .card-body -->
+                                </div>
+                            @endforeach
 
                         </div>
 
@@ -233,6 +248,12 @@
 
                 $('#add-error-message').html(errorsHtml);
             },
+        });
+
+        $(document).ready(function() {
+            if (location.hash == '#appointments') {
+                $('#appointments-tab').click();
+            }
         });
     </script>
 @endpush

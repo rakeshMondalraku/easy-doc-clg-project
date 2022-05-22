@@ -119,10 +119,9 @@
                     </div>
                     <input type="hidden" name="doctor" id="appointment-doctor-id">
                     <div class="form-group col-md-12">
-                            <label style="font-weight:bold;">Patient's Problem</label>
-                            <input type="text" class="form-control" name="problem"
-                                value="" placeholder="">
-                        </div>
+                        <label style="font-weight:bold;">Patient's Problem</label>
+                        <input type="text" class="form-control" name="problem" value="" placeholder="">
+                    </div>
                     <div class="col-md-12">
                         <button type="submit" class="boxed-btn3">Confirm</button>
                     </div>
@@ -145,7 +144,7 @@
                     $('#test-form .popup_inner').LoadingOverlay('hide');
                     $('#add-new-modal').modal('hide');
                     toastr.success(response.message);
-                    location.href = "{{ route('patient.profile') }}";
+                    location.href = "{{ route('patient.profile') }}#appointments";
                 },
                 error: function(response) {
                     $('#test-form .popup_inner').LoadingOverlay('hide');
@@ -179,11 +178,15 @@
                     let timings = '';
                     res.availabilities.forEach((availability, i) => {
                         timings += `
-                        <div>
-                            <input class="radio-box" type="radio" name="availability" id="availability${availability.id}" value="${availability.id}" ${i == 0 ? 'checked' : ''}>
-                            <label for="availability${availability.id}">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input class="radio-box" type="radio" name="availability" id="availability${availability.id}" value="${availability.id}" ${i == 0 ? 'checked' : ''}>
+                            </div>
+                            <div class="col-md-11">
+                                <label for="availability${availability.id}">
                                 ${availability.weekday} (${moment(availability.start, 'HH:mm:ss').format('HH:mm A')}-${moment(availability.end, 'HH:mm:ss').format('HH:mm A')}) - ${availability.office.address}, ${availability.office.city}, ${availability.office.state}, ${availability.office.zip} (₹ ${availability.office.fee})
                             </label>
+                            </div>
                         </div>
                         `;
                     })

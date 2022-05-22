@@ -14,7 +14,7 @@ class PatientProfileController extends Controller
     public function index()
     {
         $user = Auth::guard('patient')->user();
-        $appointments = Appointment::where('patient_id', $user->id)->get();
+        $appointments = Appointment::where('patient_id', $user->id)->with(['doctor', 'availability', 'availability.office'])->get();
         return view('profile', compact('user', 'appointments'));
     }
     public function update(Request $request)
@@ -46,14 +46,14 @@ class PatientProfileController extends Controller
     }
     public function appointments()
     {
-        $appointments = Appointment::with(['patients','doctors', 'availabilities', 'availabilities.office'])->get();
-        
+        $appointments = Appointment::with(['patients', 'doctors', 'availabilities', 'availabilities.office'])->get();
+
         return view('appointments', compact('appointments'));
     }
     public function appointmentInfo(Request $request, $id)
-	{
-        $appointment = Appointment::where('id', $id)->with(['patients','doctors', 'availabilities', 'availabilities.office'])->first();
+    {
+        $appointment = Appointment::where('id', $id)->with(['patients', 'doctors', 'availabilities', 'availabilities.office'])->first();
 
-		return $appointment;
-	}
+        return $appointment;
+    }
 }

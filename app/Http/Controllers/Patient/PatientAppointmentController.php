@@ -37,4 +37,15 @@ class PatientAppointmentController extends Controller
 			return response()->json(['message' => 'Something went wrong! Try again'], 400);
 		}
 	}
+
+	public function cancel(Request $request)
+	{
+		$appointment = Appointment::find($request->appointment);
+		if ($appointment) {
+			$appointment->status = 'canceled';
+			$appointment->save();
+		}
+
+		return redirect('/patient/profile#appointments');
+	}
 }
