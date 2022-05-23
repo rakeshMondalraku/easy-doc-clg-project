@@ -19,6 +19,7 @@
                             <th>Experience</th>
                             <th>Mobile</th>
                             <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -61,11 +62,11 @@
                         data: 'email',
                         name: 'email'
                     },
-                    // {
-                    //     data: 'action',
-                    //     name: 'action',
-                    //     orderable: false
-                    // },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false
+                    },
                 ],
             });
         });

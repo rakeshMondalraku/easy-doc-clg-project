@@ -125,8 +125,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/change-password', [AdminProfileController::class, 'updatePassword'])->name('change-password');
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::get('/doctors', [AdminDoctorController::class, 'index'])->name('doctors');
+        Route::get('/doctors/{doctor}/edit', [AdminDoctorController::class, 'edit'])->name('doctors.edit');
+        Route::put('/doctors/{doctor}/update', [AdminDoctorController::class, 'update'])->name('doctors.update');
         Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
-        Route::get('/patients', [AdminPatientController::class, 'index'])->name('patients');
+        Route::get('/patients/{patient}/edit', [AdminPatientController::class, 'edit'])->name('patients.edit');
+        Route::put('/patients/{patient}/update', [AdminPatientController::class, 'update'])->name('patients.update');
 
         Route::resource('specializations', AdminSpecializationController::class);
         Route::resource('queries', AdminQueryController::class);
