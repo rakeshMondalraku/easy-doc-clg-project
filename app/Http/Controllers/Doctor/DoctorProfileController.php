@@ -8,6 +8,7 @@ use App\Models\Specialization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
@@ -54,6 +55,9 @@ class DoctorProfileController extends Controller
         $doctor->registration_number = $request->registration_number;
 
         if ($request->file('picture')) {
+            if ($doctor->picture) {
+                Storage::delete('public/' . str_replace('storage/', '', $doctor->picture));
+            }
             $doctor->picture = 'storage/doctors/' . explode('/', $request->file('picture')->store('public/doctors'))[2];
         }
 
