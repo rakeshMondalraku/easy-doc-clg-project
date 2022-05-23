@@ -57,24 +57,7 @@ class DoctorAppointmentController extends Controller
             ->addColumn('doctor', '{{$doctor["name"]}}')
             ->addColumn('patient', '{{$patient["name"]}}')
             ->addColumn('weekday', '{{$availability["weekday"]}}')
-            ->addColumn('action', '
-                <div class="btn-group btn-group-sm" role="group">
-                    <button class="btn btn-primary btn-sm" title="View" onclick="view({{$id}})">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Change Status
-                        </button>
-                        <div class="dropdown-menu">
-                            <button class="dropdown-item" onclick="changeStatus({{$id}}, \'pending\')">Pending</button>
-                            <button class="dropdown-item" onclick="changeStatus({{$id}}, \'approved\')">Approve</button>
-                            <button class="dropdown-item" onclick="changeStatus({{$id}}, \'completed\')">Complete</button>
-                            <button class="dropdown-item" onclick="changeStatus({{$id}}, \'canceled\')">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            ')
+            ->addColumn('action', 'doctor.appointments.action')
             ->rawColumns(['doctor', 'patient', 'weekday', 'action'])
             ->make(true);
     }
